@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   end
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin' if defined? RailsAdmin
-  authenticate :user, lambda { |user| user.is_admin? } do
-    mount Blazer::Engine, at: "blazer"
-  end
+  # authenticate :user, lambda { |user| user.is_admin? } do
+  #   mount Blazer::Engine, at: "blazer"
+  # end
   # Static pages
   match '/error' => 'pages#error', via: [:get, :post], as: 'error_page'
   get '/terms' => 'pages#terms', as: 'terms'
