@@ -6,7 +6,6 @@
 //= require_self
 
 // Core
-@import "main";
 @import "variables";
 @import "bootstrap";
 @import "icons_social";
@@ -15,6 +14,7 @@
 @import "cards";
 @import "footer";
 @import "hacks";
+@import "main";
 
 // Plugins
 @import 'nprogress';

@@ -1,0 +1,95 @@
+
+// We use this to control the maximum number of block grid elements per row
+$block-grid-elements: 12 !default;
+
+// Create a custom block grid
+//
+// $per-row - # of items to display per row. Default: false.
+// $spacing - # of px to use as padding on each block item. Default: $grid-gutter-width = 30px.
+// $base-style - Apply a base style to block grid. Default: true.
+
+@mixin block-grid(
+  $per-row:false,
+  $spacing:$grid-gutter-width,
+  $include-spacing:true,
+  $base-style:true) {
+
+  @if $base-style {
+    display: block;
+    padding: 0;
+    margin: 0;
+    @include clearfix;
+
+    &>li {
+      display: block;
+      height: auto;
+      float: left;
+      @if $include-spacing {
+        padding: 0 ($spacing/2) $spacing;
+      }
+    }
+  }
+
+  @if $per-row {
+    &>li {
+      width: 100%/$per-row;
+      @if $include-spacing {
+        padding: 0 ($spacing/2) $spacing;
+      }
+      list-style: none;
+
+      &:nth-of-type(n) { clear: none; }
+      &:nth-of-type(#{$per-row}n+1) { clear: both; }
+
+      @include block-grid-aligned($per-row, $spacing);
+    }
+  }
+}
+
+@mixin block-grid-aligned($per-row, $spacing) {
+  @for $i from 1 through $block-grid-elements {
+    @if $per-row >= $i {
+      $grid-column: '+' + $i;
+      @if $per-row == $i {
+        $grid-column: '';
+      }
+      &:nth-child(#{$per-row}n#{unquote($grid-column)}) {
+        padding-left: ($spacing - (($spacing / $per-row) * ($per-row - ($i - 1))));
+        padding-right: ($spacing - (($spacing / $per-row) * $i));
+      }
+    }
+  }
+}
+
+// Generate presentational markup for block grid.
+//
+// $size - Name of class to use, i.e. "large" will generate .large-block-grid-1, .large-block-grid-2, etc.
+@mixin block-grid-html-classes($size,$include-spacing) {
+  @for $i from 1 through $block-grid-elements {
+    .block-grid-#{$size}-#{($i)} {
+      @include block-grid($i,$grid-gutter-width,$include-spacing,false);
+    }
+  }
+}
+
+
+[class*="block-grid-"] { @include block-grid; }
+
+@media (max-width: $screen-xs-max) {
+  @include block-grid-html-classes($size:xs,$include-spacing:false);
+}
+@media (min-width: $screen-sm) {
+  @include block-grid-html-classes($size:sm,$include-spacing:false);
+}
+
+@media (min-width: $screen-sm) {
+  @include block-grid-html-classes($size:sm,$include-spacing:false);
+}
+
+@media (min-width: $screen-md) {
+  @include block-grid-html-classes($size:md,$include-spacing:false);
+}
+
+@media (min-width: $screen-lg) {
+  @include block-grid-html-classes($size:lg,$include-spacing:false);
+}
