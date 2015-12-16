@@ -24,6 +24,7 @@ gem 'griddler-mailgun'
 gem 'gmail'
 
 gem 'curb'
+gem 'mail_form'
 gem 'nokogiri'
 gem 'opengraph_parser'
 # gem 'blazer'

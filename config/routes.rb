@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources "contacts", only: [:new, :create]
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin' if defined? RailsAdmin
   # authenticate :user, lambda { |user| user.is_admin? } do
   #   mount Blazer::Engine, at: "blazer"

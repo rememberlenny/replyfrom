@@ -1,11 +1,132 @@
-%h1= I18n.t('brand.name')
-
-%p
-  Rails 4 starter app with social authentication and other goodies.
-
-%p
-  = I18n.t 'brand.name'
-  uses best practices and code extracted from several production projects.
-
-%p
-  = link_to 'Github', 'https://github.com/starterkits/rails4-starterkit'
+/ Sidebar
+%section#sidebar
+  .inner
+    %nav
+      %ul
+        %li
+          %a{:href => "#intro"} Welcome
+        %li
+          %a{:href => "#one"} What we do
+        %li
+          %a{:href => "#two"} Who trusts us
+        %li
+          %a{:href => "#three"} Get started
+/ Wrapper
+#wrapper
+  / Intro
+  %section#intro.wrapper.style1.fullscreen.fade-up
+    .inner
+      %h1 ReplyFrom
+      %p
+        Just another fine responsive site template designed by
+        %a{:href => "http://html5up.net"} HTML5 UP
+        %br/
+        and released for free under the
+        = succeed "." do
+          %a{:href => "http://html5up.net/license"} Creative Commons
+      %ul.actions
+        %li
+          %a.button.scrolly{:href => "#one"} Learn more
+  / Two
+  %section#one.wrapper.style3.fade-up
+    .inner
+      %h2 What we do
+      %p Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.
+      .features
+        %section
+          %span.icon.major.fa-code
+          %h3 Lorem ipsum amet
+          %p Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.
+        %section
+          %span.icon.major.fa-lock
+          %h3 Aliquam sed nullam
+          %p Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.
+        %section
+          %span.icon.major.fa-cog
+          %h3 Sed erat ullam corper
+          %p Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.
+        %section
+          %span.icon.major.fa-desktop
+          %h3 Veroeros quis lorem
+          %p Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.
+        %section
+          %span.icon.major.fa-chain
+          %h3 Urna quis bibendum
+          %p Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.
+        %section
+          %span.icon.major.fa-diamond
+          %h3 Aliquam urna dapibus
+          %p Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.
+      %ul.actions
+        %li
+          %a.button{:href => "#"} Learn more
+  / One
+  %section#two.wrapper.style2.spotlights
+    %section
+      %a.image{:href => "#"}
+        %img{:alt => "", "data-position" => "center center", :src => "images/pic01.jpg"}/
+      .content
+        .inner
+          %h2 Sed ipsum dolor
+          %p Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.
+          %ul.actions
+            %li
+              %a.button{:href => "#"} Learn more
+    %section
+      %a.image{:href => "#"}
+        %img{:alt => "", "data-position" => "top center", :src => "images/pic02.jpg"}/
+      .content
+        .inner
+          %h2 Feugiat consequat
+          %p Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.
+          %ul.actions
+            %li
+              %a.button{:href => "#"} Learn more
+    %section
+      %a.image{:href => "#"}
+        %img{:alt => "", "data-position" => "25% 25%", :src => "images/pic03.jpg"}/
+      .content
+        .inner
+          %h2 Ultricies aliquam
+          %p Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.
+          %ul.actions
+            %li
+              %a.button{:href => "#"} Learn more
+  / Three
+  %section#three.wrapper.style1.fade-up
+    .inner
+      %h2 Get started
+      %p
+        We’ve only got 500 invites for our preview.
+        %br Sign up now to be in with a chance:
+      .style1
+        %section
+          %form{:action => "#", :method => "post"}
+            .field.half.first
+              %label{:for => "name"} Name
+              %input#name{:name => "name", :type => "text"}/
+            .field.half
+              %label{:for => "email"} Email
+              %input#email{:name => "email", :type => "text"}/
+            .field
+              %label{:for => "message"} Message
+              %textarea#message{:name => "message", :rows => "5"}
+            %ul.actions
+              %li
+                %a.button.submit{:href => ""} Send Message
+/ Footer
+%footer#footer.wrapper.style1-alt
+  .inner
+    %ul.menu
+      %li &copy; ReplyFrom. All rights reserved.
+      %li
+        Design:
+        %a{:href => "http://html5up.net"} HTML5 UP
+/ Scripts
+%script{:src => "assets/js/jquery.min.js"}
+%script{:src => "assets/js/jquery.scrollex.min.js"}
+%script{:src => "assets/js/jquery.scrolly.min.js"}
+%script{:src => "assets/js/skel.min.js"}
+%script{:src => "assets/js/util.js"}
+/[if lte IE 8] <script src="assets/js/ie/respond.min.js"></script>
+%script{:src => "assets/js/main.js"}
