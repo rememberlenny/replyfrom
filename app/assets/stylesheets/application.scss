@@ -6,6 +6,7 @@
 //= require_self
 
 // Core
+@import "main";
 @import "variables";
 @import "bootstrap";
 @import "icons_social";
@@ -25,9 +26,8 @@
 // Minor Tweaks
 //
 
-// Padding to clear fixed nav
-body {
-  padding-top: 70px;
+body{
+	background: #312450;
 }
 
 // Make sure alerts are nicely formatted
