@@ -15,14 +15,18 @@
     = render 'layouts/airbrake'
   %body{class: "controller__#{controller_name} action__#{action_name}"}
     = render 'layouts/navigation'
-    .container
-      .errors__container
-        = render 'layouts/messages'
-      = yield
-      %footer.page__footer
-        - if content_for? :footer
-          = yield :footer
-        - else
-          = render 'layouts/footer'
+    #wrapper
+      / Main
+      %section#main.wrapper
+        .inner
+          .errors__container
+            = render 'layouts/messages'
+          = yield
+      %footer#footer.wrapper.alt
+        .inner
+          - if content_for? :footer
+            = yield :footer
+          - else
+            = render 'layouts/footer'
     = render 'layouts/analytics'
     = render 'layouts/javascripts'

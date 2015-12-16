@@ -1,14 +1,7 @@
-%nav.navbar.navbar-default.navbar-fixed-top{role: 'navigation'}
-  .navbar-header
-    %button.navbar-toggle{type: 'button', data: {toggle: 'collapse', target: '.navbar-collapse'}}
-      %span.sr-only
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
-    = link_to I18n.t('brand.name'), root_path, class: 'navbar-brand'
-
-  .collapse.navbar-collapse
-    %ul.nav.navbar-nav.navbar-right
+%header#header{role: 'navigation'}
+  = link_to I18n.t('brand.name'), root_path, class: 'title'
+  %nav
+    %ul
       - if user_signed_in?
         %li.dropdown
           %a.dropdown-toggle{href: '#', data: {toggle: 'dropdown'}}
