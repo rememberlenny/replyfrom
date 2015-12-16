@@ -1,0 +1,21 @@
+= simple_form_for(@email) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :newsletter_id
+    = f.input :to
+    = f.input :from
+    = f.input :subject
+    = f.input :body
+    = f.input :raw_text
+    = f.input :raw_html
+    = f.input :raw_body
+    = f.input :headers
+    = f.input :raw_headers
+    = f.input :admin_email
+    = f.input :slug
+    = f.input :origin_body
+    = f.input :origin_raw_html
+
+  .form-actions
+    = f.button :submit

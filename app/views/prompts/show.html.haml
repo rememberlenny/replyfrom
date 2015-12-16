@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @prompt.name
+%p
+  %b Description:
+  = @prompt.description
+
+= link_to 'Edit', edit_prompt_path(@prompt)
+\|
+= link_to 'Back', prompts_path

@@ -1,0 +1,45 @@
+%h1 Listing emails
+
+%table
+  %tr
+    %th Newsletter
+    %th To
+    %th From
+    %th Subject
+    %th Body
+    %th Raw text
+    %th Raw html
+    %th Raw body
+    %th Headers
+    %th Raw headers
+    %th Admin email
+    %th Slug
+    %th Origin body
+    %th Origin raw html
+    %th
+    %th
+    %th
+
+  - @emails.each do |email|
+    %tr
+      %td= email.newsletter_id
+      %td= email.to
+      %td= email.from
+      %td= email.subject
+      %td= email.body
+      %td= email.raw_text
+      %td= email.raw_html
+      %td= email.raw_body
+      %td= email.headers
+      %td= email.raw_headers
+      %td= email.admin_email
+      %td= email.slug
+      %td= email.origin_body
+      %td= email.origin_raw_html
+      %td= link_to 'Show', email
+      %td= link_to 'Edit', edit_email_path(email)
+      %td= link_to 'Destroy', email, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Email', new_email_path
