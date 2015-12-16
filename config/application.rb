@@ -15,7 +15,7 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module StarterKit
+module ReplyFrom
   class Application < Rails::Application
     # Use sql instead of ruby to support case insensitive indices for postgres
     config.active_record.schema_format = :sql

@@ -26,11 +26,11 @@
 
 en:
   brand:
-    name: 'StarterKit'
+    name: 'ReplyFrom'
 
   emails:
     welcome:
-      subject: 'Welcome to StarterKit'
+      subject: 'Welcome to ReplyFrom'
 
   auth:
     login:
