@@ -93,7 +93,7 @@
             %li
               %a.button{:href => "#"} Learn more
   / Three
-  %section#three.wrapper.style1.fade-up
+  %section#three.wrapper.style1.fade-up.homein
     .inner
       %h2 Get started
       %p
@@ -101,19 +101,15 @@
         %br Sign up now to be in with a chance:
       .style1
         %section
-          %form{:action => "#", :method => "post"}
+          = simple_form_for @contact, :url => url_for(:action => 'create', :controller => 'contacts'), :html => {:class => 'form-horizontal' } do |f|
             .field.half.first
-              %label{:for => "name"} Name
-              %input#name{:name => "name", :type => "text"}/
+              = f.input :name, :required => true
             .field.half
-              %label{:for => "email"} Email
-              %input#email{:name => "email", :type => "text"}/
+              = f.input :email, :required => true
             .field
-              %label{:for => "message"} Message
-              %textarea#message{:name => "message", :rows => "5"}
-            %ul.actions
-              %li
-                %a.button.submit{:href => ""} Send Message
+              = f.input :message, :as => :text, name: 'message', id: 'message', :required => false, :input_html => {:rows => 5}
+            .form-actions
+            = f.button :submit, 'Send message', :class=> "btn btn-primary"
 / Footer
 %footer#footer.wrapper.style1-alt
   .inner

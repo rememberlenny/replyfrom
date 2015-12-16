@@ -20,7 +20,14 @@
 @import 'nprogress';
 @import 'nprogress-bootstrap';
 
-
+.homein{
+	.form-horizontal .control-label{
+		abbr{
+			display: none;
+		}
+		text-align: left;
+	}
+}
 
 //
 // Minor Tweaks
