@@ -69,6 +69,171 @@ ALTER SEQUENCE authentications_id_seq OWNED BY authentications.id;
 
 
 --
+-- Name: blazer_audits; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE blazer_audits (
+    id integer NOT NULL,
+    user_id integer,
+    query_id integer,
+    statement text,
+    data_source character varying(255),
+    created_at timestamp without time zone
+);
+
+
+--
+-- Name: blazer_audits_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE blazer_audits_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: blazer_audits_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE blazer_audits_id_seq OWNED BY blazer_audits.id;
+
+
+--
+-- Name: blazer_checks; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE blazer_checks (
+    id integer NOT NULL,
+    query_id integer,
+    state character varying(255),
+    emails text,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: blazer_checks_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE blazer_checks_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: blazer_checks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE blazer_checks_id_seq OWNED BY blazer_checks.id;
+
+
+--
+-- Name: blazer_dashboard_queries; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE blazer_dashboard_queries (
+    id integer NOT NULL,
+    dashboard_id integer,
+    query_id integer,
+    "position" integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: blazer_dashboard_queries_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE blazer_dashboard_queries_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: blazer_dashboard_queries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE blazer_dashboard_queries_id_seq OWNED BY blazer_dashboard_queries.id;
+
+
+--
+-- Name: blazer_dashboards; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE blazer_dashboards (
+    id integer NOT NULL,
+    name text,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: blazer_dashboards_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE blazer_dashboards_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: blazer_dashboards_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE blazer_dashboards_id_seq OWNED BY blazer_dashboards.id;
+
+
+--
+-- Name: blazer_queries; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE blazer_queries (
+    id integer NOT NULL,
+    creator_id integer,
+    name character varying(255),
+    description text,
+    statement text,
+    data_source character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: blazer_queries_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE blazer_queries_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: blazer_queries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE blazer_queries_id_seq OWNED BY blazer_queries.id;
+
+
+--
 -- Name: emails; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -263,6 +428,41 @@ ALTER TABLE ONLY authentications ALTER COLUMN id SET DEFAULT nextval('authentica
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY blazer_audits ALTER COLUMN id SET DEFAULT nextval('blazer_audits_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY blazer_checks ALTER COLUMN id SET DEFAULT nextval('blazer_checks_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY blazer_dashboard_queries ALTER COLUMN id SET DEFAULT nextval('blazer_dashboard_queries_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY blazer_dashboards ALTER COLUMN id SET DEFAULT nextval('blazer_dashboards_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY blazer_queries ALTER COLUMN id SET DEFAULT nextval('blazer_queries_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY emails ALTER COLUMN id SET DEFAULT nextval('emails_id_seq'::regclass);
 
 
@@ -293,6 +493,46 @@ ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regcl
 
 ALTER TABLE ONLY authentications
     ADD CONSTRAINT authentications_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: blazer_audits_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY blazer_audits
+    ADD CONSTRAINT blazer_audits_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: blazer_checks_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY blazer_checks
+    ADD CONSTRAINT blazer_checks_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: blazer_dashboard_queries_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY blazer_dashboard_queries
+    ADD CONSTRAINT blazer_dashboard_queries_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: blazer_dashboards_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY blazer_dashboards
+    ADD CONSTRAINT blazer_dashboards_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: blazer_queries_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY blazer_queries
+    ADD CONSTRAINT blazer_queries_pkey PRIMARY KEY (id);
 
 
 --
@@ -397,4 +637,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140204233952');
 INSERT INTO schema_migrations (version) VALUES ('20151216190454');
 
 INSERT INTO schema_migrations (version) VALUES ('20151216190555');
+
+INSERT INTO schema_migrations (version) VALUES ('20151216204020');
 

@@ -14,19 +14,22 @@
     = yield :head
     = render 'layouts/airbrake'
   %body{class: "controller__#{controller_name} action__#{action_name}"}
-    = render 'layouts/navigation'
-    #wrapper
-      / Main
-      %section#main.wrapper.container
-        .inner
-          .errors__container
-            = render 'layouts/messages'
-          = yield
+    - if controller_name != 'pages' && action_name != 'home'
+      = render 'layouts/navigation'
+      #wrapper
+        %section#main.wrapper.container
+          .inner
+            .errors__container
+              = render 'layouts/messages'
+            = yield
       %footer#footer.wrapper.alt
         .inner
           - if content_for? :footer
             = yield :footer
           - else
             = render 'layouts/footer'
+    - else
+      = yield
+
     = render 'layouts/analytics'
     = render 'layouts/javascripts'
