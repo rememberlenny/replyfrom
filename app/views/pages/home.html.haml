@@ -107,7 +107,7 @@
             .field.half
               = f.input :email, :required => true
             .field
-              = f.input :message, :as => :text, name: 'message', id: 'message', :required => false, :input_html => {:rows => 5}
+              = f.input :message, :as => :text, name: 'message', id: 'message', :required => false, :input_html => {:type => :text, :rows => 5}
             .form-actions
             = f.button :submit, 'Send message', :class=> "btn btn-primary"
 / Footer
