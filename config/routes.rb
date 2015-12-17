@@ -51,6 +51,5 @@ Rails.application.routes.draw do
   get '/p/email' => 'pages#email' if ENV['ALLOW_EMAIL_PREVIEW'].present?
 
   get 'robots.:format' => 'robots#index'
-
   root 'pages#home'
 end
