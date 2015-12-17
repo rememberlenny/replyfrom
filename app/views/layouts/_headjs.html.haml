@@ -8,7 +8,7 @@
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   - if signed_in?
-    ga('set', 'userId', #{current_user.uid}); // Set the user ID using signed-in user_id.
+    ga('set', 'userId', "#{current_user.uid}"); // Set the user ID using signed-in user_id.
   ga('create', 'UA-71504768-1', 'auto');
   ga('send', 'pageview');
 
