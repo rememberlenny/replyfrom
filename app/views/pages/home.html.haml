@@ -17,6 +17,7 @@
   %header#header.homeheader{role: 'navigation'}
     %nav
       %ul
+        %li= link_to 'About', about_path
         %li= link_to I18n.t('auth.signup.link'), new_user_registration_path
         %li= link_to I18n.t('auth.login.link'), new_user_session_path
   %section#intro.wrapper.style1.fullscreen.fade-up

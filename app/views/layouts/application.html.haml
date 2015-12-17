@@ -15,7 +15,7 @@
     
     = render 'layouts/headjs'
   %body{class: "controller__#{controller_name} action__#{action_name}"}
-    - if controller_name != 'pages' && action_name != 'home'
+    - if controller_name != 'pages' || action_name != 'home'
       = render 'layouts/navigation'
       #wrapper
         %section#main.wrapper.container

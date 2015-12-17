@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   resources :users, path: 'u', only: :show do
     resources :authentications, path: 'accounts'
   end
+  get '/about' => 'pages#about', as: 'about'
   get '/home' => 'users#show', as: 'user_home'
 
   # Dummy preview pages for testing.
