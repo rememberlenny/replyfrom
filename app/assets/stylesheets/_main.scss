@@ -10,6 +10,12 @@ a.image.scrolly img{
 	max-width: 100%;
 }
 
+@media screen and (max-width: 980px){
+	.hide-tablet-down{
+		display: none !important;
+	}
+}
+
 .homeheader{
 	position: absolute;
 	top: 0px;
