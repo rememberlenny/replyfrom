@@ -6,6 +6,13 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+.homeheader{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	z-index: 100;
+}
+
 .form-control{
 	    color: inherit!important;
 }
@@ -354,7 +361,7 @@
 	*/
 
 /* Button */
-
+body{
 	input[type="submit"],
 	input[type="reset"],
 	input[type="button"],
@@ -388,6 +395,7 @@
 		text-transform: uppercase;
 		white-space: nowrap;
 	}
+}
 
 		input[type="submit"]:after,
 		input[type="reset"]:after,
