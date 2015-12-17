@@ -23,6 +23,7 @@ gem 'griddler'
 gem 'griddler-mailgun'
 gem 'gmail'
 
+gem 'mailgun_rails'
 gem 'curb'
 gem 'mail_form'
 gem 'nokogiri'
