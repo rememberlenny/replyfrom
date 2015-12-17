@@ -1,4 +1,7 @@
-%h1 User Home
+%h1 Your campaigns
 
-%p
-  You are logged in.
+%ul
+  - @prompts.each do |prompt|
+    %li= link_to prompt.name, prompt
+
+=render 'prompts/get_started'
