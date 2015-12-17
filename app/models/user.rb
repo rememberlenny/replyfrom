@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :timeoutable, :lockable, :async
 
+  has_many :prompts
   has_many :authentications, dependent: :destroy, validate: false, inverse_of: :user do
     def grouped_with_oauth
       includes(:oauth_cache).group_by {|a| a.provider }

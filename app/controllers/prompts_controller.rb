@@ -40,6 +40,6 @@ class PromptsController < ApplicationController
     end
 
     def prompt_params
-      params.require(:prompt).permit(:name, :description)
+      params.require(:prompt).permit(:name, :user_id, :description)
     end
 end
