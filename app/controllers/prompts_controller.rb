@@ -1,4 +1,5 @@
 class PromptsController < ApplicationController
+  load_and_authorize_resource :user
   before_action :set_prompt, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -20,6 +21,7 @@ class PromptsController < ApplicationController
 
   def create
     @prompt = Prompt.new(prompt_params)
+    @prompt.user_id = @current_user.id
     @prompt.save
     respond_with(@prompt)
   end

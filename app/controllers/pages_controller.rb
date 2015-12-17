@@ -2,6 +2,9 @@ class PagesController < ApplicationController
   skip_authorization_check
   skip_before_action :authenticate_user!
   def home
+    if signed_in?
+      redirect_to user_home_path
+    end
     @contact = Contact.new
   end
 

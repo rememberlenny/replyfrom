@@ -2,4 +2,6 @@
 
 %ul
   - @prompts.each do |prompt|
-    %li= prompt.name
+    %li= link_to prompt.name, prompt
+
+=render 'prompts/get_started'
