@@ -219,10 +219,6 @@ GEM
     mail_form (1.5.1)
       actionmailer (>= 3.2, < 5)
       activemodel (>= 3.2, < 5)
-    mailgun_rails (0.8.0)
-      actionmailer (>= 3.2.13)
-      json (>= 1.7.7)
-      rest-client (>= 1.6.7)
     memcachier (0.0.2)
     meta-tags (2.1.0)
       actionpack (>= 3.0.0)
@@ -516,7 +512,6 @@ DEPENDENCIES
   jquery-turbolinks
   kaminari
   mail_form
-  mailgun_rails
   memcachier
   meta-tags
   meta_request
