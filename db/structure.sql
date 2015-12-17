@@ -298,7 +298,8 @@ CREATE TABLE prompts (
     name character varying(255),
     description text,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    user_id integer
 );
 
 
@@ -639,4 +640,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151216190454');
 INSERT INTO schema_migrations (version) VALUES ('20151216190555');
 
 INSERT INTO schema_migrations (version) VALUES ('20151216204020');
+
+INSERT INTO schema_migrations (version) VALUES ('20151217062121');
 
