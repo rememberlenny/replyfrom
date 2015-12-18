@@ -1,5 +1,7 @@
 %header#header{role: 'navigation'}
-  = link_to I18n.t('brand.name'), root_path, class: 'title'
+  = link_to root_path, {class: 'title', style: ' border: none'} do 
+    =image_tag 'logo.png', {style: 'max-width: 40px;'}
+    = ' ReplyFrom'
   %nav
     %ul
       - if user_signed_in?
