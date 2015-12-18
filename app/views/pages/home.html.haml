@@ -1,6 +1,9 @@
 / Sidebar
 %section#sidebar
   .inner
+    .logo{style: 'max-width: 100px; margin: 0 auto; left:0; right:0; position: absolute; top: 0px;'}
+      = link_to root_path, {style: 'border: none'} do 
+        =image_tag 'logo.png', {style: 'max-width: 100%;'}
     %nav
       %ul
         %li
