@@ -2,6 +2,7 @@
 Rails.application.routes.draw do
   mount_griddler
   resources :prompts
+  get '/get_started' => 'prompts#get_started', as: 'get_started'
   resources :emails
 
   if defined? Sidekiq
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   match '/error' => 'pages#error', via: [:get, :post], as: 'error_page'
   get '/terms' => 'pages#terms', as: 'terms'
   get '/privacy' => 'pages#privacy', as: 'privacy'
+  get '/home' => 'users#show', as: 'user_home'
 
   # OAuth
   oauth_prefix = Rails.application.config.auth.omniauth.path_prefix
@@ -44,7 +46,6 @@ Rails.application.routes.draw do
   resources :users, path: 'u', only: :show do
     resources :authentications, path: 'accounts'
   end
-  get '/home' => 'users#show', as: 'user_home'
 
   # Dummy preview pages for testing.
   get '/p/test' => 'pages#test', as: 'test'
