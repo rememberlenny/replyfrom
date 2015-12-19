@@ -12,9 +12,10 @@
     = headjs_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     = yield :head
-    = render 'layouts/airbrake'
+    = set_display_meta_tags
+    = render 'layouts/headjs'
   %body{class: "controller__#{controller_name} action__#{action_name}"}
-    - if controller_name != 'pages' && action_name != 'home'
+    - if controller_name != 'pages' || action_name != 'home'
       = render 'layouts/navigation'
       #wrapper
         %section#main.wrapper.container

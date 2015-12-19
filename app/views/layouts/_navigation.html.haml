@@ -1,5 +1,7 @@
 %header#header{role: 'navigation'}
-  = link_to I18n.t('brand.name'), root_path, class: 'title'
+  = link_to root_path, {class: 'title', style: ' border: none'} do 
+    =image_tag 'logo.png', {style: 'max-width: 40px; max-height: 25px; margin-right: 10px;'}
+    %span ReplyFrom
   %nav
     %ul
       - if user_signed_in?
@@ -9,5 +11,6 @@
         %li= link_to I18n.t('auth.logout.link'), destroy_user_session_path, rel: :nofollow
         %li= render 'users/avatar', size: :tiny
       - unless user_signed_in?
+        %li= link_to 'About', about_path
         %li= link_to I18n.t('auth.signup.link'), new_user_registration_path
         %li= link_to I18n.t('auth.login.link'), new_user_session_path

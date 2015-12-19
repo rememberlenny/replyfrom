@@ -106,6 +106,9 @@ GEM
       warden (~> 1.2.3)
     devise-async (0.9.0)
       devise (~> 3.2)
+    devise_uid (0.1.1)
+      devise (>= 3.0.0)
+      railties (>= 3.0)
     diff-lcs (1.2.5)
     docile (1.1.5)
     domain_name (0.5.24)
@@ -490,6 +493,7 @@ DEPENDENCIES
   database_cleaner
   devise
   devise-async
+  devise_uid
   factory_girl_rails
   ffaker
   fog-aws
