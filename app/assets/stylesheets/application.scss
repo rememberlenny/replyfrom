@@ -7,7 +7,16 @@
 
 // Core
 @import "variables";
-@import "bootstrap";
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+     -moz-transition: $transition;
+      -ms-transition: $transition;
+       -o-transition: $transition;
+          transition: $transition;
+}
+
+// @import "bootstrap";
 @import "icons_social";
 @import "auth";
 @import "avatar";

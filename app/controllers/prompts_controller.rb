@@ -2,6 +2,10 @@ class PromptsController < ApplicationController
   load_and_authorize_resource :user
   before_action :set_prompt, only: [:show, :edit, :update, :destroy]
 
+  def get_started
+
+  end
+
   def index
     @prompts = Prompt.all
     respond_with(@prompts)
