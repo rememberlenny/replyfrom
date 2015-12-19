@@ -23,8 +23,14 @@
 #
 # TODO: Replace instances of 'StarterKit' in this file with your app brand name.
 #
-
 en:
+  meta:
+    description: 'ReplyFrom: Simplifying two-way communication with your email list'
+    keywords: 'email list, email newsletter, email newsletter tools, email, newsletter'
+    og:
+      image: '%{image_url("logo.png")}'
+      app_id: '918961361474155'
+
   brand:
     name: 'ReplyFrom'
 

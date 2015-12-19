@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   include Concerns::UserImagesConcern
 
-  devise :database_authenticatable, :registerable,
+  devise :uid, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :timeoutable, :lockable, :async
 

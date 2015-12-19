@@ -395,7 +395,8 @@ CREATE TABLE users (
     locked_at timestamp without time zone,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    is_admin boolean
+    is_admin boolean,
+    uid character varying(255)
 );
 
 
@@ -604,6 +605,13 @@ CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (re
 
 
 --
+-- Name: index_users_on_uid; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_users_on_uid ON users USING btree (uid);
+
+
+--
 -- Name: index_users_on_unlock_token; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -642,4 +650,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151216190555');
 INSERT INTO schema_migrations (version) VALUES ('20151216204020');
 
 INSERT INTO schema_migrations (version) VALUES ('20151217062121');
+
+INSERT INTO schema_migrations (version) VALUES ('20151217163354');
 

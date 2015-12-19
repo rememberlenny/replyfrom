@@ -1,14 +1,17 @@
 / Sidebar
 %section#sidebar
   .inner
+    .logo{style: 'max-width: 100px; margin: 0 auto; left:0; right:0; position: absolute; top: 0px;'}
+      = link_to root_path, {style: 'border: none'} do 
+        =image_tag 'logo.png', {style: 'max-width: 100%;'}
     %nav
       %ul
         %li
           %a{:href => "#intro"} Welcome
         %li
-          %a{:href => "#one"} What we do
+          %a{:href => "#one"} How it works
         %li
-          %a{:href => "#two"} Who trusts us
+          %a{:href => "#two"} What we do
         %li
           %a{:href => "#three"} Get started
 / Wrapper
@@ -17,6 +20,7 @@
   %header#header.homeheader{role: 'navigation'}
     %nav
       %ul
+        %li= link_to 'About', about_path
         %li= link_to I18n.t('auth.signup.link'), new_user_registration_path
         %li= link_to I18n.t('auth.login.link'), new_user_session_path
   %section#intro.wrapper.style1.fullscreen.fade-up
@@ -30,7 +34,40 @@
         %li
           %a.button.scrolly{:href => "#one"} Learn more
   / Two
-  %section#one.wrapper.style3.fade-up
+  / One
+  %section#one.wrapper.style2.spotlights
+    %section
+      .content
+        .inner
+          %h2 How it works
+          %p We generate you a unique email address for your email campaigns. Set your "reply to" address when sending out your mail. Aggregate reponses without wasting your time.
+          %ul.actions
+            %li
+              %a.button.scrolly{:href => "#footer"} Learn more
+      %a.image.scrolly.hide-tablet-down{:href => "#footer"} 
+        =image_tag 'uniqueemail.png', {:alt => "", "data-position" => "center center"}
+    %section
+      %a.image.scrolly.hide-tablet-down{:href => "#footer"} 
+        =image_tag 'listexam.png', {:alt => "", "data-position" => "top center"}
+      .content
+        .inner
+          %h2 Engage your audience
+          %p Email newsletters are great for engaging your audience and they are becoming more popular. Its easy to open on your phone and reply. Use ReplyFrom to reduce the steps needed to engage your audience.
+          %ul.actions
+            %li
+              %a.button.scrolly{:href => "#footer"} Learn more
+    %section
+      .content
+        .inner
+          %h2 Who would use
+          %p Whether you're running a advertiser sponsored campaign or getting user feedback, we can help you at scale. Alumni networks, office mailing lists, or any mid-sized audience are no longer being talked at. You can use ReplyFrom to have a back-and-forth exchange. 
+          %ul.actions
+            %li
+              %a.button.scrolly{:href => "#footer"} Learn more
+      %a.image.scrolly.hide-tablet-down{:href => "#footer"} 
+        =image_tag 'inaction.png', {:alt => "", "data-position" => "25% 25%"}
+  
+  %section#two.wrapper.style3.fade-up
     .inner
       %h2 What we do
       %p We provide you with a way to engage your email list users through organizing the responses. We provide an email address to forward all of your messages. Our slick dashboard makes it easy to compile and organize responses to get them back out in no time.
@@ -61,39 +98,7 @@
           %p We are continually improving our service based on your feedback
       %ul.actions
         %li
-          %a.button{:href => "#"} Learn more
-  / One
-  %section#two.wrapper.style2.spotlights
-    %section
-      %a.image{:href => "#"}
-        %img{:alt => "", "data-position" => "center center", :src => "images/pic01.jpg"}/
-      .content
-        .inner
-          %h2 Personal Lists
-          %p Turn your personal email list into an opportunity to engage in feedback. Whether its a personal project, a group of friends, or a team at work, you can get your audience input.
-          %ul.actions
-            %li
-              %a.button{:href => "#"} Learn more
-    %section
-      %a.image{:href => "#"}
-        %img{:alt => "", "data-position" => "top center", :src => "images/pic02.jpg"}/
-      .content
-        .inner
-          %h2 Professional Audience
-          %p Alumni networks, office mailing lists, or any mid-sized audience can be easily engaged. You no longer have to worry about time consuming email inboxes.
-          %ul.actions
-            %li
-              %a.button{:href => "#"} Learn more
-    %section
-      %a.image{:href => "#"}
-        %img{:alt => "", "data-position" => "25% 25%", :src => "images/pic03.jpg"}/
-      .content
-        .inner
-          %h2 Publication
-          %p Whether you're running a advertiser sponsored campaign or getting user feedback, we can help you at scale.
-          %ul.actions
-            %li
-              %a.button{:href => "#"} Learn more
+          %a.button.scrolly{:href => "#footer"} Learn more
   / Three
   %section#three.wrapper.style1.fade-up.homein
     .inner
@@ -117,6 +122,8 @@
   .inner
     %ul.menu
       %li &copy; ReplyFrom. All rights reserved.
+      %li= link_to 'Contact Us', new_contact_path
+      %li= link_to 'About', about_path
       %li
         Design:
         %a{:href => "http://html5up.net"} HTML5 UP
