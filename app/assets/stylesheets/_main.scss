@@ -31,6 +31,10 @@ body.controller__users{
 	  text-align: center;
 	  width: 25px;
 	}
+	.locked {
+    border-bottom: 0;
+    opacity: .2;
+	}
 	.step_number_digit {
 	  line-height: 22px;
 	  display: inline-block;
