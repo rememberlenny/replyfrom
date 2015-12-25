@@ -1,0 +1,17 @@
+/ Modal
+#modalContainer.modal.fade{:role => "dialog"}
+  .modal-dialog.modal-lg
+    / Modal content
+    .modal-content
+      .modal-body
+        .row
+          .col-md-4.sidebar
+            %button{"data-dismiss" => "modal", :type => "button"} X Close
+            %h2.modal-title Forward your emails
+            %p Access your list emails faster and smarter by forwarding them to ReplyFrom’s inbox.
+          .col-md-8
+            .row
+              .col-md-12
+                %h3.text-center.body-title
+                  Forward your mail to ReplyFrom
+

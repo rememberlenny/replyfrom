@@ -11,6 +11,37 @@
 	margin-bottom: 1em;
 }
 
+.modal-content{
+  border-radius: 0px;
+}
+
+.modal-body{
+	.body-title{
+		padding-top:1em;
+		padding-bottom:1em;
+		border-bottom:1px solid #ccc;
+	}
+	.modal-title{
+		line-height: 1;
+		margin-bottom: 1em;
+	}
+	padding: 0px;
+	.sidebar{
+		padding-left: 1em;
+		background: #261c3e;
+		h1, h2, h3, h4, h5, h6, p, div, label{
+			color: #efefef;
+		}
+		button, button:after{
+			padding: 0px;
+	    font-size: 13px;
+			background-color: transparent !important;
+			border: none!important;
+			background: none!important;
+			border-radius: 0px !important;
+		}
+	}
+}
 
 body.controller__users, body.controller__accounts{
 	background: #F6F6F6;

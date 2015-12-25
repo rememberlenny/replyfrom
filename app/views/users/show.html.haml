@@ -5,3 +5,8 @@
     %li= link_to prompt.name, prompt
 
 =render 'prompts/get_started'
+
+=render 'modal'
+
+= content_for :on_ready do
+  = "$('#modalContainer').modal()"
