@@ -9,4 +9,5 @@
 =render 'modal'
 
 = content_for :on_ready do
-  = "$('#modalContainer').modal()"
+  = "$('#modalContainer').modal({backdrop: 'static'})"
+
