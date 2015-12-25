@@ -4,4 +4,14 @@ class UsersController < ApplicationController
   def show
     @prompts = Prompt.where(user_id: @current_user.id)
   end
+
+  def setup
+
+  end
+
+  private
+
+    def has_email_slug
+
+    end
 end

@@ -1,5 +1,16 @@
 @charset "UTF-8";
 
+#main.container{
+	width: 100%;
+	.inner{
+    padding: 2em 0em 4em;
+	}
+}
+
+header#header{
+  padding: .5em 1em;
+}
+
 /*
 	Hyperspace by HTML5 UP
 	html5up.net | @n33co
