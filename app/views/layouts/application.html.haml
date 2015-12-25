@@ -16,19 +16,17 @@
     = render 'layouts/headjs'
   %body{class: "controller__#{controller_name} action__#{action_name}"}
     - if controller_name != 'pages' || action_name != 'home'
-      = render 'layouts/navigation'
-      #wrapper
-        %section#main.wrapper.container
-          .inner
-            .errors__container
-              = render 'layouts/messages'
-            = yield
-      %footer#footer.wrapper.alt
-        .inner
-          - if content_for? :footer
-            = yield :footer
-          - else
-            = render 'layouts/footer'
+      .app-wrapper.layoutbox
+        .app-row.layoutbox.flexto1.height100
+          .app-row.layoutbox.flexto1.height100
+            = render 'layouts/navigation'
+            #wrapper.layoutbox.height100
+              %section#main.wrapper.container.layoutbox.flexto1.app-row.height100
+                .inner.app-columns.height100
+                  .errors__container
+                    = render 'layouts/messages'
+                  = yield
+
     - else
       = yield
 

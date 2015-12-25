@@ -83,6 +83,55 @@
 	}
 }
 
+html, body{
+  height: 100%;
+}
+
+.app-wrapper{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	overflow: hidden;
+}
+
+.app-columns{
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+}
+
+.height100{
+  height: 100%;
+}
+
+.layoutbox{
+	-webkit-flex: 0 0 auto;
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+	min-width: 0;
+	min-height: 0;
+}
+
+.flexto1{
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+
+.app-row{
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
 body.controller__users, body.controller__accounts{
 	#wrapper .wrapper,
 	#wrapper .wrapper .inner{
