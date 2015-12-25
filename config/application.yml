@@ -40,6 +40,7 @@ common: &common
 default_env: &default_env
   # From address to use when sending email
   MAIL_HOST: 'replyfrom.com'
+  INCOMING_MAIL_HOST: 'incoming.replyfrom.com'
 
   # Host used to determine direct requests vs CDN.
   # See RobotsController.

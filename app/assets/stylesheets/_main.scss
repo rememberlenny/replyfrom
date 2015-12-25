@@ -7,6 +7,24 @@
 	}
 }
 
+.setup-step{
+	min-height: 260px;
+}
+
+.center-vertical{
+	padding-top: 5em;
+	padding-bottom: 4em;
+}
+
+.fowardemail-step-1,
+.fowardemail-step-2,
+.fowardemail-step-3{
+	display: none;
+	&.show{
+		display: block;
+	}
+}
+
 .half-pad{
 	margin-bottom: 1em;
 }
@@ -16,6 +34,10 @@
 }
 
 .modal-body{
+	ol{
+		margin-bottom: .5em;
+	}
+	background: #261c3e;
 	.body-title{
 		padding-top:1em;
 		padding-bottom:1em;
@@ -26,27 +48,38 @@
 		margin-bottom: 1em;
 	}
 	padding: 0px;
+	.mainbar{
+		background: #eee;
+		button.no-styles{
+			text-decoration: underline;
+			text-transform: inherit;
+		}
+	}
+	button.no-styles, button.no-styles:after{
+		padding: 0px;
+    font-size: 13px;
+		background-color: transparent !important;
+		border: none!important;
+		background: none!important;
+		border-radius: 0px !important;
+		color: #333 !important;
+	}
 	.sidebar{
+		button.no-styles, button.no-styles:after{
+			color: white !important;
+		}
 		padding-left: 2em;
 		padding-right: 1em;
 		background: #261c3e;
 		h1, h2, h3, h4, h5, h6, p, div, label{
 			color: #efefef;
 		}
-		button, button:after{
-			padding: 0px;
-	    font-size: 13px;
-			background-color: transparent !important;
-			border: none!important;
-			background: none!important;
-			border-radius: 0px !important;
-		}
 	}
 }
 
 body.controller__users, body.controller__accounts{
 	background: #F6F6F6;
-	h1, h2, h3, h4, h5, h6, p, div, label{
+	h1, h2, h3, h4, h5, h6, p, div, label, strong, b{
 		color: #222;
 	}
 	.step_number {

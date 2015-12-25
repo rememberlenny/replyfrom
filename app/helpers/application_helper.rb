@@ -14,4 +14,10 @@ module ApplicationHelper
       render(view, *args, &block)
     end
   end
+
+  def current_email user_id
+    user = User.find user_id
+    account = Account.find user.current_account_id
+    return account.slug + '@'.to_s + ENV['INCOMING_MAIL_HOST']
+  end
 end
