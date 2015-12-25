@@ -49,6 +49,7 @@ Rails.application.routes.draw do
   resources :users, path: 'u', only: :show do
     resources :authentications, path: 'accounts'
   end
+  post '/update_information' => 'accounts#update_information', as: 'update_account_information'
   get '/setup_account' => 'users#setup_account', as: 'setup_account'
   get '/account/information' => 'accounts#new_information', as: 'new_information'
 

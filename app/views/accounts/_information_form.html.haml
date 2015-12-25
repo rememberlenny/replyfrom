@@ -1,4 +1,4 @@
-= simple_form_for(@account) do |f|
+= simple_form_for(@account, :url => update_account_information_path, :method => :post) do |f|
   = f.error_notification
 
   .row
