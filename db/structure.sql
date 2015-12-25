@@ -430,7 +430,8 @@ CREATE TABLE users (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     is_admin boolean,
-    uid character varying(255)
+    uid character varying(255),
+    current_account_id integer DEFAULT 0
 );
 
 
@@ -707,4 +708,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151225162339');
 INSERT INTO schema_migrations (version) VALUES ('20151225162340');
 
 INSERT INTO schema_migrations (version) VALUES ('20151225173552');
+
+INSERT INTO schema_migrations (version) VALUES ('20151225185359');
 

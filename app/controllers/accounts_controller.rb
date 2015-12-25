@@ -3,8 +3,7 @@ class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
 
   def new
-    @account = Account.new
-    respond_with(@account)
+    @account = Account.new()
   end
 
   def edit
@@ -17,6 +16,7 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(account_params)
     @account.save
+    User.update current_account_id: @account.id
     redirect_to :new_information
   end
 
