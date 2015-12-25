@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @account.user_id
+%p
+  %b Slug:
+  = @account.slug
+%p
+  %b Fowarded email:
+  = @account.fowarded_email
+%p
+  %b Description:
+  = @account.description
+
+= link_to 'Edit', edit_account_path(@account)
+\|
+= link_to 'Back', accounts_path

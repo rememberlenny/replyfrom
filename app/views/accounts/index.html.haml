@@ -1,0 +1,25 @@
+%h1 Listing accounts
+
+%table
+  %tr
+    %th User
+    %th Slug
+    %th Fowarded email
+    %th Description
+    %th
+    %th
+    %th
+
+  - @accounts.each do |account|
+    %tr
+      %td= account.user_id
+      %td= account.slug
+      %td= account.fowarded_email
+      %td= account.description
+      %td= link_to 'Show', account
+      %td= link_to 'Edit', edit_account_path(account)
+      %td= link_to 'Destroy', account, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Account', new_account_path

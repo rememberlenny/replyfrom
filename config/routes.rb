@@ -1,5 +1,7 @@
 # Route prefixes use a single letter to allow for vanity urls of two or more characters
 Rails.application.routes.draw do
+  resources :accounts
+
   mount_griddler
   resources :prompts
   get '/get_started' => 'prompts#get_started', as: 'get_started'

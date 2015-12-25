@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def setup_account
-
+    @account = Account.new
   end
 
   private

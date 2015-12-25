@@ -1,12 +1,15 @@
-#signupModal.modal.fade{"aria-labelledby" => "signupModalLabel", :role => "dialog", :tabindex => "-1"}
-  .modal-dialog{:role => "document"}
-    .modal-content
-      .modal-header
-        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-          %span{"aria-hidden" => "true"} &times;
-        %h4#myModalLabel.modal-title Modal title
-      .modal-body
-        \...
-      .modal-footer
-        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-        %button.btn.btn-primary{:type => "button"} Save changes
+.row.text-center
+  %h1
+    Get started with ReplyFrom
+.row
+  .col-md-7.col-centered
+    %h3
+      Add emails from your community
+    %p
+      ReplyFrom organizeds your communication with large email audiences and lets you facilitate actionable responses. How do you want to add your emails to the ReplyFrom platform?
+.row
+  .col-md-7.col-centered
+    %p
+      Enter the email you'd like to forward
+
+    = render 'accounts/form'

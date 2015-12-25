@@ -37,7 +37,7 @@ CREATE TABLE accounts (
     id integer NOT NULL,
     user_id integer,
     slug character varying(255),
-    name character varying(255),
+    fowarded_email character varying(255),
     description text,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
@@ -705,4 +705,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151217163354');
 INSERT INTO schema_migrations (version) VALUES ('20151225162339');
 
 INSERT INTO schema_migrations (version) VALUES ('20151225162340');
+
+INSERT INTO schema_migrations (version) VALUES ('20151225173552');
 

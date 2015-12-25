@@ -1,8 +1,8 @@
 FactoryGirl.define do
-  factory :acccount do
+  factory :account do
     user_id 1
 slug "MyString"
-name "MyString"
+fowarded_email "MyString"
 description "MyText"
   end
 

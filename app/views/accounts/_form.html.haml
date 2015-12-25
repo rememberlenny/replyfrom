@@ -1,0 +1,11 @@
+= simple_form_for(@account) do |f|
+  = f.error_notification
+
+  .row
+    .col-md-8
+      .form-inputs
+        = f.input :fowarded_email, label: false, type: 'email', placeholder: 'team@yourcompany.com'
+    .col-md-4
+      .form-actions
+        = f.button :submit
+
