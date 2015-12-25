@@ -1,12 +1,58 @@
-%p#notice= notice
+:plain
+  </section>
+.col-md-3
+  %h2
+    = @prompt.name
+.col-md-9
+  %h1 Listing emails
+  %span
+    Newsletter
+  %span
+    To
+  %span
+    From
+  %span
+    Subject
+  %span
+    Body
+  %span
+    Raw text
+  %span
+    Raw html
+  %span
+    Raw body
+  %span
+    Headers
+  %span
+    Raw headers
+  %span
+    Admin email
+  %span
+    Slug
+  %span
+    Origin body
+  %span
+    Origin raw html
+  %span
 
-%p
-  %b Name:
-  = @prompt.name
-%p
-  %b Description:
-  = @prompt.description
+  - @emails.each do |email|
+    = email.newsletter_id + " | "
+    = email.to + " | "
+    = email.from + " | "
+    = email.subject + " | "
+    = email.body + " | "
+    = email.raw_text + " | "
+    = email.raw_html + " | "
+    = email.raw_body + " | "
+    = email.headers + " | "
+    = email.raw_headers + " | "
+    = email.admin_email + " | "
+    = email.slug + " | "
+    = email.origin_body + " | "
+    = email.origin_raw_html + " | "
+    = link_to 'Show', email + " | "
+    = link_to 'Edit', edit_email_path(email) + " | "
+    = link_to 'Destroy', email, :method => :delete, :data => { :confirm => 'Are you sure?' } + " | "
 
-= link_to 'Edit', edit_prompt_path(@prompt)
-\|
-= link_to 'Back', prompts_path
+  %br
+.row

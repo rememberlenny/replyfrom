@@ -12,7 +12,7 @@ class PromptsController < ApplicationController
   end
 
   def show
-    respond_with(@prompt)
+    @emails = Email.where newsletter_id: @prompt.id
   end
 
   def new
