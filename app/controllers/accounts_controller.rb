@@ -15,8 +15,10 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new(account_params)
+    @account.user_id = @current_user.id
     @account.save
-    User.update current_account_id: @account.id
+    @current_user.current_account_id = @account.id
+    @current_user.save
     redirect_to :new_information
   end
 
