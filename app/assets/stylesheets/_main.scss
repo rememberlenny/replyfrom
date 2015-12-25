@@ -7,10 +7,38 @@
 	}
 }
 
+.half-pad{
+	margin-bottom: 1em;
+}
+
+
 body.controller__users{
 	background: #F6F6F6;
 	h1, h2, h3, h4, h5, h6, p, div, label{
 		color: #222;
+	}
+	.step_number {
+	  background: #3F4850;
+	  border-radius: 100%;
+	  color: #fff;
+	  display: inline-block;
+	  font-size: 15px;
+	  height: 25px;
+	  line-height: 25px;
+	  margin-left: -35px;
+	  padding: 2px;
+	  position: absolute;
+	  text-align: center;
+	  width: 25px;
+	}
+	.step_number_digit {
+	  line-height: 22px;
+	  display: inline-block;
+	  vertical-align: top;
+	}
+	.title-border{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 7px;
 	}
 
 	input[type="text"], input[type="password"], input[type="email"], input[type="tel"], select, textarea{
