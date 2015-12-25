@@ -1,0 +1,14 @@
+= simple_form_for(@account) do |f|
+  = f.error_notification
+
+  .row
+    .col-md-3
+      %h4
+        %small{style: 'text-transform: uppercase; font-weight: bold;'}
+          Newsletter Name
+    .col-md-9
+      .form-inputs
+        = f.input :description, :as => :string, label: false, placeholder: 'Your newsletter/company name'
+      .form-actions.text-right
+        = f.button :submit, value: 'Start using ReplyFrom'
+

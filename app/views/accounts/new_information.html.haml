@@ -1,0 +1,22 @@
+.row.text-center
+  %h1
+    Get started with ReplyFrom
+.row
+  .col-md-7.col-centered
+    %h3.title-border.complete
+      .step_number
+        %span.step_number_digit
+          1
+      Add emails from your community
+      %small
+        = link_to '(edit)', new_account_path
+.row
+  .col-md-7.col-centered
+    %h3.title-border
+      .step_number
+        %span.step_number_digit
+          2
+      Provide account information
+
+    = render 'accounts/information_form'
+

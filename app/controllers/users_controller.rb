@@ -7,7 +7,11 @@ class UsersController < ApplicationController
   end
 
   def setup_account
-    @account = Account.new
+    redirect_to :new_account
+  end
+
+  def setup_account_information
+
   end
 
   private

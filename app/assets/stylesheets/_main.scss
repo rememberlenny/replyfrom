@@ -12,7 +12,7 @@
 }
 
 
-body.controller__users{
+body.controller__users, body.controller__accounts{
 	background: #F6F6F6;
 	h1, h2, h3, h4, h5, h6, p, div, label{
 		color: #222;
@@ -31,8 +31,20 @@ body.controller__users{
 	  text-align: center;
 	  width: 25px;
 	}
+	h1{
+		font-size: 2.15em;
+		margin-bottom: 1.25em;
+		margin-top: .25em;
+	}
+	.complete {
+    padding-bottom: 2em !important;
+    border-bottom: 0 !important;
+	}
+	.complete .step_number {
+    background: #65CC93;
+	}
 	.locked {
-    border-bottom: 0;
+    border-bottom: 0 !important;
     opacity: .2;
 	}
 	.step_number_digit {

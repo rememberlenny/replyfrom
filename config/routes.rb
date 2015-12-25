@@ -50,6 +50,7 @@ Rails.application.routes.draw do
     resources :authentications, path: 'accounts'
   end
   get '/setup_account' => 'users#setup_account', as: 'setup_account'
+  get '/account/information' => 'accounts#new_information', as: 'new_information'
 
   # Dummy preview pages for testing.
   get '/p/test' => 'pages#test', as: 'test'

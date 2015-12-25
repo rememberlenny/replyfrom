@@ -1,14 +1,6 @@
 class AccountsController < ApplicationController
+  load_and_authorize_resource :user
   before_action :set_account, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @accounts = Account.all
-    respond_with(@accounts)
-  end
-
-  def show
-    respond_with(@account)
-  end
 
   def new
     @account = Account.new
@@ -18,10 +10,14 @@ class AccountsController < ApplicationController
   def edit
   end
 
+  def new_information
+    @account = Account.new()
+  end
+
   def create
     @account = Account.new(account_params)
     @account.save
-    respond_with(@account)
+    redirect_to :new_information
   end
 
   def update
