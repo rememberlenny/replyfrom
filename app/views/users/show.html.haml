@@ -1,10 +1,8 @@
-%h1 Your campaigns
 
-%ul
-  - @prompts.each do |prompt|
-    %li= link_to prompt.name, prompt
+=render 'sidebar'
+=render 'mainbody'
 
-=render 'prompts/get_started'
+.row
 
 =render 'modal'
 
