@@ -30,10 +30,10 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: acccounts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: accounts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
-CREATE TABLE acccounts (
+CREATE TABLE accounts (
     id integer NOT NULL,
     user_id integer,
     slug character varying(255),
@@ -45,10 +45,10 @@ CREATE TABLE acccounts (
 
 
 --
--- Name: acccounts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: accounts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE acccounts_id_seq
+CREATE SEQUENCE accounts_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -57,10 +57,10 @@ CREATE SEQUENCE acccounts_id_seq
 
 
 --
--- Name: acccounts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: accounts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE acccounts_id_seq OWNED BY acccounts.id;
+ALTER SEQUENCE accounts_id_seq OWNED BY accounts.id;
 
 
 --
@@ -457,7 +457,7 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY acccounts ALTER COLUMN id SET DEFAULT nextval('acccounts_id_seq'::regclass);
+ALTER TABLE ONLY accounts ALTER COLUMN id SET DEFAULT nextval('accounts_id_seq'::regclass);
 
 
 --
@@ -531,11 +531,11 @@ ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regcl
 
 
 --
--- Name: acccounts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: accounts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
-ALTER TABLE ONLY acccounts
-    ADD CONSTRAINT acccounts_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY accounts
+    ADD CONSTRAINT accounts_pkey PRIMARY KEY (id);
 
 
 --
@@ -703,4 +703,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151217062121');
 INSERT INTO schema_migrations (version) VALUES ('20151217163354');
 
 INSERT INTO schema_migrations (version) VALUES ('20151225162339');
+
+INSERT INTO schema_migrations (version) VALUES ('20151225162340');
 

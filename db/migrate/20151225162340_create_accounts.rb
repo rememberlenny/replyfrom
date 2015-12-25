@@ -1,6 +1,7 @@
-class CreateAcccounts < ActiveRecord::Migration
+class CreateAccounts < ActiveRecord::Migration
   def change
-    create_table :acccounts do |t|
+    drop_table :acccounts
+    create_table :accounts do |t|
       t.integer :user_id
       t.string :slug
       t.string :name

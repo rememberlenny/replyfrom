@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   resources :users, path: 'u', only: :show do
     resources :authentications, path: 'accounts'
   end
+  get '/setup_account' => 'users#setup_account', as: 'setup_account'
 
   # Dummy preview pages for testing.
   get '/p/test' => 'pages#test', as: 'test'
