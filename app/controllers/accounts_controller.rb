@@ -12,7 +12,7 @@ class AccountsController < ApplicationController
   def update_information
     @account = Account.find @current_user.current_account_id
     @account.update(account_params)
-    redirect_to user_root
+    redirect_to :user_root
   end
 
   def new_information
