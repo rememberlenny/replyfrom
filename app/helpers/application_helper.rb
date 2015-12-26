@@ -22,8 +22,7 @@ module ApplicationHelper
   end
 
   def count_messages
-    account = Account.find @current_user.current_account_id
-
-    return '0'
+    email_count = Email.where(account_id: current_account_id).count
+    return email_count
   end
 end
