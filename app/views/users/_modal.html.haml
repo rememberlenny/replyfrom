@@ -1,16 +1,30 @@
 = content_for :on_ready do
+  'var requesturl = "http://' + #{CANONICAL_HOST} + '/account/verification/' + #{get_slug} + '";'
   :plain
     $('.fowardemail-next').on('click', function(evt){
+      moveToFoward2();
+    });
+    $('.fowardemail-next-3').on('click', function(evt){
+      moveToFoward3();
+    });
+    var check_verification = function(){
+      var checkingVerification = window.setInterval(function(){
+        $.get( requesturl, function( data ) {
+          if (data['verified'] == 'true'){
+            clearInterval(checkingVerification);
+            moveToForward3();
+          }
+        });
+      }, 500);
+    }
+    var moveToFoward2 = function(){
       $('.fowardemail-step-1').removeClass('show');
       $('.fowardemail-step-2').addClass('show');
       check_verification();
-    });
-    $('.fowardemail-next-3').on('click', function(evt){
+    };
+    var moveToForward3 = function(){
       $('.fowardemail-step-2').removeClass('show');
       $('.fowardemail-step-3').addClass('show');
-    });
-    var check_verification = function(){
-
     }
 
 #modalContainer.modal.fade{:role => "dialog"}
