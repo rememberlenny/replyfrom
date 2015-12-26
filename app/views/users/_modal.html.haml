@@ -3,11 +3,15 @@
     $('.fowardemail-next').on('click', function(evt){
       $('.fowardemail-step-1').removeClass('show');
       $('.fowardemail-step-2').addClass('show');
+      check_verification();
     });
     $('.fowardemail-next-3').on('click', function(evt){
       $('.fowardemail-step-2').removeClass('show');
       $('.fowardemail-step-3').addClass('show');
     });
+    var check_verification = function(){
+
+    }
 
 #modalContainer.modal.fade{:role => "dialog"}
   .modal-dialog.modal-lg
