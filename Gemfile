@@ -136,6 +136,9 @@ group :development do
   # gem 'rack-livereload'
 end
 
+gem 'pry'
+gem 'pry-rails'               # adds rails specific commands to pry
+
 group :development, :test do
   # Use spring or zeus
   gem 'spring'                  # keep application running in the background
