@@ -11,9 +11,11 @@ class EmailProcessor
       raw_text: @email.raw_text,
       raw_html: @email.raw_html,
       raw_body: @email.raw_body,
-      body: @email.body
+      body: @email.body,
+      headers: @email.headers,
+      forwarded: @email["X-Forwarded-To"],
     )
-    # pry
+    pry
     puts "Done"
   end
 end
