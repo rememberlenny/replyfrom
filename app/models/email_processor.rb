@@ -4,8 +4,12 @@ class EmailProcessor
   end
 
   def process
+    to = @email.to[0][:email]
+    if @email.headers && !@email.headers["X-Forwarded-To"].nil?
+      to = @email.headers["X-Forwarded-To"]
+    end
     Email.create(
-      to: @email.headers["X-Forwarded-To"],
+      to: to,
       from: @email.from[:email],
       subject: @email.subject,
       raw_text: @email.raw_text,
