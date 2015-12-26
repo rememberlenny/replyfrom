@@ -3,7 +3,11 @@ class Email < ActiveRecord::Base
 
   def check_account
     puts 'CHECKACCOUNT GO'
-    account = Account.where(slug: self.to.split('@')[0]).first
+    to_email = self.to
+    puts 'to_email: ' + to_email.to_s
+    slug = to_email.split('@')[0]
+    puts 'slug: ' + slug.to_s
+    account = Account.where(slug: slug).first
     if account && !account.empty?
       self.account_id = account.id
       self.save
