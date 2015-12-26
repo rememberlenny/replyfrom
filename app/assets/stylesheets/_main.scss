@@ -1,5 +1,24 @@
 @charset "UTF-8";
 
+.user-bodycontent{
+	background: #ddd;
+}
+
+.toolbar-users{
+	border-bottom: 1px solid #dce5eb;
+  padding: 10px 20px 10px;
+  background: #eee;
+	h3{
+		margin: 0px;
+		font-size: 1.1em;
+		color: #333!important;
+	}
+}
+
+.full-width{
+	width: 100%;
+}
+
 #main.container{
 	width: 100%;
 	.inner{
@@ -235,7 +254,7 @@ body.controller__users, body.controller__accounts{
 }
 
 header#header{
-  padding: .2em 1em;
+  padding: .3em 1em .4em;
 }
 
 /*

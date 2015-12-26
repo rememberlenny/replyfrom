@@ -20,4 +20,10 @@ module ApplicationHelper
     account = Account.find user.current_account_id
     return account.slug + '@'.to_s + ENV['INCOMING_MAIL_HOST']
   end
+
+  def count_messages
+    account = Account.find @current_user.current_account_id
+
+    return '0'
+  end
 end
