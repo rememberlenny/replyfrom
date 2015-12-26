@@ -1,26 +1,27 @@
-.row.text-center
-  %h1
-    Get started with ReplyFrom
-.row
-  .col-md-7.col-centered
-    %h3.title-border
-      .step_number
-        %span.step_number_digit
-          1
-      Add emails from your community
-    %p.half-pad
-      ReplyFrom organizes your communication with large email audiences and lets you facilitate actionable responses. How do you want to add your emails to the ReplyFrom platform?
-.row
-  .col-md-7.col-centered
-    %p
-      Enter the email you'd like to forward
+.app-row.height100.account_intro
+  .row.text-center
+    %h1{style: 'margin-top: 1em;'}
+      Get started with ReplyFrom
+  .row
+    .col-md-7.col-centered
+      %h3.title-border
+        .step_number
+          %span.step_number_digit
+            1
+        Add emails from your community
+      %p.half-pad
+        ReplyFrom organizes your communication with large email audiences and lets you facilitate actionable responses. How do you want to add your emails to the ReplyFrom platform?
+  .row
+    .col-md-7.col-centered
+      %p
+        Enter the email you'd like to forward
 
-    = render 'accounts/form'
-.row
-  .col-md-7.col-centered
-    %h3.title-border.locked
-      .step_number
-        %span.step_number_digit
-          2
-      Provide account information
+      = render 'accounts/form'
+  .row
+    .col-md-7.col-centered
+      %h3.title-border.locked
+        .step_number
+          %span.step_number_digit
+            2
+        Provide account information
 

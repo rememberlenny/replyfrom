@@ -4,6 +4,19 @@
 	background: #ddd;
 }
 
+.account_intro{
+	overflow-y: scroll;
+	width: 100%;
+}
+
+.controller__accounts{
+	.row{
+		margin: 0 auto;
+		max-width: 1000px;
+		width: 100%;
+	}
+}
+
 .tbl__cell{
   background-color: #fff;
   vertical-align: middle;
@@ -316,7 +329,7 @@ body.controller__users, body.controller__accounts{
 }
 
 header#header{
-  padding: .3em 1em .4em;
+  padding:.3em 1em .6em;
 }
 
 /*

@@ -1,23 +1,24 @@
-.row.text-center
-  %h1
-    Get started with ReplyFrom
-.row
-  .col-md-7.col-centered
-    %h3.title-border.complete
-      .step_number
-        %span.step_number_digit
-          1
-      Add emails from your community
-      %small
-        = link_to '(edit)', new_account_path
-.row
-  .col-md-7.col-centered
-    %h3.title-border
-      .step_number
-        %span.step_number_digit
-          2
-      Provide account information
-    %p
-      You're almost done. Fill in these details to create your account and start using ReplyFrom right away.
-    = render 'accounts/information_form'
+.app-row.height100.account_intro
+  .row.text-center
+    %h1
+      Get started with ReplyFrom
+  .row
+    .col-md-7.col-centered
+      %h3.title-border.complete
+        .step_number
+          %span.step_number_digit
+            1
+        Add emails from your community
+        %small
+          = link_to '(edit)', new_account_path
+  .row
+    .col-md-7.col-centered
+      %h3.title-border
+        .step_number
+          %span.step_number_digit
+            2
+        Provide account information
+      %p
+        You're almost done. Fill in these details to create your account and start using ReplyFrom right away.
+      = render 'accounts/information_form'
 
