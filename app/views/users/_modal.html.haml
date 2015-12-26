@@ -1,6 +1,6 @@
 = content_for :javascript do
   %script
-    var requesturl = "http://#{ENV['CANONICAL_HOST']}/account/verification/#{get_slug}";
+    var requesturl = "https://#{ENV['CANONICAL_HOST']}/account/verification/#{get_slug}";
 = content_for :on_ready do
   :plain
     $('.fowardemail-next').on('click', function(evt){
