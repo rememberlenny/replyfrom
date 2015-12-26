@@ -4,18 +4,19 @@
       #{count_messages} Messages
   .table-user-wrapper.layoutbox
     .table-portal
-      %table
+      %table.tbl.o__fit.o__fixed.keyboard_accessible.js__user-list-table
         %thead
           %tr
-            %th
-            %th
-            %th
-            %th
-            %th
-        %tbody
-          %tr
-            %td.tbl__cell
-            %td.tbl__cell
-            %td.tbl__cell
-            %td.tbl__cell
-            %td.tbl__cell
+            %th.tbl__cell.t__small-caps.name.o__fixed-header
+            %th.tbl__cell.t__small-caps.name.o__fixed-header
+            %th.tbl__cell.t__small-caps.name.o__fixed-header
+            %th.tbl__cell.t__small-caps.name.o__fixed-header
+            %th.tbl__cell.t__small-caps.name.o__fixed-header
+        %tbody.tbl__body
+          - 30.times do
+            %tr
+              %td.tbl__cell
+              %td.tbl__cell
+              %td.tbl__cell
+              %td.tbl__cell
+              %td.tbl__cell

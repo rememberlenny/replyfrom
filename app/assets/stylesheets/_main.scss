@@ -22,6 +22,18 @@
 	display: table;
 }
 
+.tbl.o__fixed {
+    margin: 0;
+}
+
+.tbl.o__fit {
+    min-width: 100%;
+}
+
+.tbl__body {
+    display: table-row-group;
+}
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -33,14 +45,7 @@ table {
   min-width: fit-content;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	table{
-    margin: 0;
-    min-width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    display: table;
-    border-color: grey;
-	}
+
 }
 
 .table-user-wrapper{
