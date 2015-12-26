@@ -12,9 +12,8 @@
             %th.tbl__cell.t__small-caps.name.o__fixed-header
             %th.tbl__cell.t__small-caps.name.o__fixed-header
             %th.tbl__cell.t__small-caps.name.o__fixed-header
-        - Email.where(account_id: @current_user.current_account_id).each do |email|
           %tbody.tbl__body
-            - 30.times do
+            - Email.where(account_id: @current_user.current_account_id).each do |email|
               %tr
                 %td.tbl__cell
                   = email.from
@@ -25,12 +24,10 @@
                 %td.tbl__cell
                   = email.created_at
                 %td.tbl__cell
-
-        %tbody.tbl__body
-          - 30.times do
-            %tr
-              %td.tbl__cell
-              %td.tbl__cell
-              %td.tbl__cell
-              %td.tbl__cell
-              %td.tbl__cell
+            - (30-count_messages.to_i).times do
+              %tr
+                %td.tbl__cell
+                %td.tbl__cell
+                %td.tbl__cell
+                %td.tbl__cell
+                %td.tbl__cell
