@@ -10,6 +10,10 @@ class Email < ActiveRecord::Base
     account = Account.where(slug: slug).first
     if account && !account.nil?
       self.account_id = account.id
+      if !account.is_verified
+        account.is_verified = true
+        account.save
+      end
       self.save
     end
     puts 'CHECKACCOUNT STOP'
