@@ -40,7 +40,8 @@ CREATE TABLE accounts (
     fowarded_email character varying(255),
     description text,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    is_verified boolean DEFAULT false
 );
 
 
@@ -710,4 +711,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151225162340');
 INSERT INTO schema_migrations (version) VALUES ('20151225173552');
 
 INSERT INTO schema_migrations (version) VALUES ('20151225185359');
+
+INSERT INTO schema_migrations (version) VALUES ('20151226033757');
 

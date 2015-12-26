@@ -13,6 +13,10 @@ class Account < ActiveRecord::Base
     generate_uid
   end
 
+  def self.verify
+
+  end
+
   def generate_uid
     uid = SecureRandom.hex(4)
     checked = Account.check_is_unique_uid(uid)

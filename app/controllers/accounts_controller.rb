@@ -11,7 +11,7 @@ class AccountsController < ApplicationController
     response = { status: 'success', code: 200 }
     response['verified'] = false
     account = Account.where(slug: id).first
-    if account.is_verified
+    if !account.nil? && account.is_verified
       response['verified'] = true
     end
     render json: response
