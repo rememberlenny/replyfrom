@@ -12,7 +12,7 @@
             %th.tbl__cell.t__small-caps.name.o__fixed-header
             %th.tbl__cell.t__small-caps.name.o__fixed-header
             %th.tbl__cell.t__small-caps.name.o__fixed-header
-        - Email.where(account_id: current_account_id).each do |email|
+        - Email.where(account_id: @current_user.current_account_id).each do |email|
           %tbody.tbl__body
             - 30.times do
               %tr
