@@ -8,7 +8,7 @@ class Email < ActiveRecord::Base
     slug = to_email.split('@')[0]
     puts 'slug: ' + slug.to_s
     account = Account.where(slug: slug).first
-    if account && !account.empty?
+    if account && !account.nil?
       self.account_id = account.id
       self.save
     end
