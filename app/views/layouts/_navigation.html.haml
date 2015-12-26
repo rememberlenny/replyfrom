@@ -1,7 +1,6 @@
 %header#header.layoutbox{role: 'navigation'}
-  = link_to root_path, {class: 'title', style: ' border: none'} do
-    =image_tag 'logo.png', {style: 'max-width: 40px; max-height: 25px; margin-right: 10px;'}
-    %span ReplyFrom
+  = link_to root_path, {class: 'title', style: ' border: none; max-width: 32px; max-height: 30px; margin-right: 10px;'} do
+    =image_tag 'logo.png', {style: 'width: 100%;'}
   %nav
     %ul
       - if user_signed_in?

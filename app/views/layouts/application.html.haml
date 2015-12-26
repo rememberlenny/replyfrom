@@ -22,10 +22,11 @@
             = render 'layouts/navigation'
             #wrapper.layoutbox.height100
               %section#main.wrapper.container.layoutbox.flexto1.app-row.height100
-                .inner.app-columns.height100
+                .inner.app-row.height100
                   .errors__container
                     = render 'layouts/messages'
-                  = yield
+                  .app-columns
+                    = yield
 
     - else
       = yield

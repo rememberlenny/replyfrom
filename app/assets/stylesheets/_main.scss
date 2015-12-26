@@ -226,7 +226,7 @@ body.controller__users, body.controller__accounts{
 }
 
 header#header{
-  padding: .5em 1em;
+  padding: .2em 1em;
 }
 
 /*
@@ -2168,8 +2168,17 @@ body{
 		Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 	*/
 
-/* Header */
-
+	/* Header */
+	.errors__container{
+		width: 100%;
+		max-width: 800px;
+		margin: 0 auto;
+		position: absolute;
+		left: 0;
+		right: 0;
+    z-index: 1;
+    top: 40px;
+	}
 	#header {
 		display: -moz-flex;
 		display: -webkit-flex;
@@ -2179,12 +2188,19 @@ body{
 		cursor: default;
 		padding: 1.75em 2em;
 	}
-
+	button.close{
+		height: 23px;
+		background: #333;
+		opacity: .7;
+		text-align: center;
+		width: 23px;
+		padding-left: 5px;
+	}
 		#header > .title {
 			border: 0;
 			color: #ffffff;
 			display: block;
-			font-size: 1.25em;
+			font-size: 1em;
 			font-weight: bold;
 		}
 
