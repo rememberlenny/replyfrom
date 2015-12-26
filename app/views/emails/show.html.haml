@@ -1,48 +1,46 @@
-%p#notice= notice
+.app-row.scroll
+  %p#notice= notice
 
-%p
-  %b Newsletter:
-  = @email.newsletter_id
-%p
-  %b To:
-  = @email.to
-%p
-  %b From:
-  = @email.from
-%p
-  %b Subject:
-  = @email.subject
-%p
-  %b Body:
-  = @email.body
-%p
-  %b Raw text:
-  = @email.raw_text
-%p
-  %b Raw html:
-  = @email.raw_html
-%p
-  %b Raw body:
-  = @email.raw_body
-%p
-  %b Headers:
-  = @email.headers
-%p
-  %b Raw headers:
-  = @email.raw_headers
-%p
-  %b Admin email:
-  = @email.admin_email
-%p
-  %b Slug:
-  = @email.slug
-%p
-  %b Origin body:
-  = @email.origin_body
-%p
-  %b Origin raw html:
-  = @email.origin_raw_html
+  %p
+    %b To:
+    = @email.to
+  %p
+    %b From:
+    = @email.from
+  %p
+    %b Subject:
+    = @email.subject
+  %p
+    %b Body:
+    = @email.body
+  %p
+    %b Raw text:
+    = @email.raw_text
+  %p
+    %b Raw html:
+    = @email.raw_html
+  %p
+    %b Raw body:
+    = @email.raw_body
+  %p
+    %b Headers:
+    = @email.headers
+  %p
+    %b Raw headers:
+    = @email.raw_headers
+  %p
+    %b Admin email:
+    = @email.admin_email
+  %p
+    %b Slug:
+    = @email.slug
+  %p
+    %b Origin body:
+    = @email.origin_body
+  %p
+    %b Origin raw html:
+    = @email.origin_raw_html
 
-= link_to 'Edit', edit_email_path(@email)
-\|
-= link_to 'Back', emails_path
+  = link_to 'Edit', edit_email_path(@email)
+  \|
+  = link_to 'Back', emails_path

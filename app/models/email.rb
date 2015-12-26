@@ -14,6 +14,21 @@ class Email < ActiveRecord::Base
     end
   end
 
+  def scan_full_html_for_email email_to_check
+    emails = Email.where(from: email_to_check)
+    emails.each do |ee|
+      ht = ee.raw_html
+      if !ht.nil?
+        puts "success"
+        found = ht.scan(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i)
+        ee.from = found.first
+        ee.save
+      else
+        puts "nope"
+      end
+    end
+  end
+
   def set_account
     to_email = self.to
     slug = to_email.split('@')[0]

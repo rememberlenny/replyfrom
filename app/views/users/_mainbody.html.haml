@@ -52,11 +52,11 @@
               %td.tbl__cell
                 %input{:type => "checkbox", name: 'email_' + email.id.to_s}
               %td.tbl__cell
-                = email.from
+                = link_to email.from, email
               %td.tbl__cell
-                = email.subject
+                = link_to email.subject, email
               %td.tbl__cell
-                = email.body
+                = link_to email.body, email
               %td.tbl__cell
                 = email.created_at
               %td.tbl__cell
