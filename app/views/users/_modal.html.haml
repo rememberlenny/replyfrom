@@ -1,7 +1,7 @@
 - if !Account.find(@current_user.current_account_id).is_verified
   = content_for :javascript do
     %script
-      var requesturl = "https://#{ENV['CANONICAL_HOST']}/account/verification/#{get_slug}";
+      var requesturl = "https://" + location.hostname + "/account/verification/#{get_slug}";
   = content_for :on_ready do
     :plain
       $('.fowardemail-next').on('click', function(evt){
