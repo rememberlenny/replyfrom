@@ -1,10 +1,9 @@
 # Route prefixes use a single letter to allow for vanity urls of two or more characters
 Rails.application.routes.draw do
-  resources :accounts
 
   mount_griddler
+  resources :accounts
   resources :prompts
-  get '/get_started' => 'prompts#get_started', as: 'get_started'
   resources :emails
 
   if defined? Sidekiq
@@ -49,7 +48,11 @@ Rails.application.routes.draw do
   resources :users, path: 'u', only: :show do
     resources :authentications, path: 'accounts'
   end
+
+  get '/account/verification/:id' => 'accounts#verification', as: 'verification'
+
   post '/update_information' => 'accounts#update_information', as: 'update_account_information'
+  get '/get_started' => 'prompts#get_started', as: 'get_started'
   get '/setup_account' => 'users#setup_account', as: 'setup_account'
   get '/account/information' => 'accounts#new_information', as: 'new_information'
 

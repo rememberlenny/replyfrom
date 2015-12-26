@@ -6,6 +6,17 @@ class AccountsController < ApplicationController
     @account = Account.new()
   end
 
+  def verification
+    id = params[:id]
+    response = { status: 'success', code: 200 }
+    if !Account.where(slug: id).empty?
+      response['verified'] = true
+    else
+      response['verified'] = false
+    end
+    render json: response
+  end
+
   def edit
   end
 
