@@ -47,7 +47,7 @@
             %th.t__small-caps.name.o__fixed-header
 
         %tbody.tbl__body
-          - Email.where(account_id: @current_user.current_account_id).each do |email|
+          - @emails.each do |email|
             %tr
               %td.tbl__cell
                 %input{:type => "checkbox"}

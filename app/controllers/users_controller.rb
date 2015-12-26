@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :has_email_slug, except: :setup_account
 
   def show
-    @prompts = Prompt.where(user_id: @current_user.id)
+    @emails = Email.where(account_id: @current_user.current_account_id).reverse
   end
 
   def setup_account
