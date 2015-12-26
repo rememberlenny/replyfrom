@@ -4,7 +4,6 @@
 //
 
 //= require_self
-//= require jquery-tablesorter/theme.bootstrap
 
 // Core
 @import "variables";
@@ -16,6 +15,8 @@
 @import "footer";
 @import "hacks";
 @import "main";
+@import "tablesort_theme";
+@import "table";
 
 
 // Plugins

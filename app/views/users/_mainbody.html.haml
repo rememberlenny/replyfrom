@@ -1,33 +1,66 @@
+
+= content_for :on_ready do
+  var startFixedColumns = 2;
+  :plain
+    $('.js__user-list-table').tablesorter({
+      theme: 'default',
+      showProcessing: true,
+      headerTemplate : '{content} {icon}',
+      widgets: [ 'uitheme', 'zebra', 'scroller' ],
+      widgetOptions : {
+        // scroll tbody to top after sorting
+        scroller_upAfterSort: true,
+        // pop table header into view while scrolling up the page
+        scroller_jumpToHeader: true,
+
+        scroller_height : 300,
+        // set number of columns to fix
+        scroller_fixedColumns : startFixedColumns,
+        // add a fixed column overlay for styling
+        scroller_addFixedOverlay : false,
+        // add hover highlighting to the fixed column (disable if it causes slowing)
+        scroller_rowHighlight : 'hover',
+
+        // bar width is now calculated; set a value to override
+        scroller_barWidth : null
+      }
+    });
+
 %div.user-bodycontent.full-width
   %div.toolbar-users
     %h3
       #{count_messages} Messages
   .table-user-wrapper.layoutbox
     .table-portal
-      %table.tbl.o__fit.o__fixed.keyboard_accessible.js__user-list-table
+      %table.tbl.o__fit.o__fixed.keyboard_accessible.js__user-list-table.tablesorter
         %thead
           %tr
-            %th.tbl__cell.t__small-caps.name.o__fixed-header
-            %th.tbl__cell.t__small-caps.name.o__fixed-header
-            %th.tbl__cell.t__small-caps.name.o__fixed-header
-            %th.tbl__cell.t__small-caps.name.o__fixed-header
-            %th.tbl__cell.t__small-caps.name.o__fixed-header
-          %tbody.tbl__body
-            - Email.where(account_id: @current_user.current_account_id).each do |email|
-              %tr
-                %td.tbl__cell
-                  = email.from
-                %td.tbl__cell
-                  = email.subject
-                %td.tbl__cell
-                  = email.body
-                %td.tbl__cell
-                  = email.created_at
-                %td.tbl__cell
-            - (30-count_messages.to_i).times do
-              %tr
-                %td.tbl__cell
-                %td.tbl__cell
-                %td.tbl__cell
-                %td.tbl__cell
-                %td.tbl__cell
+            %th.t__small-caps.name.o__fixed-header
+              Email
+            %th.t__small-caps.name.o__fixed-header
+              Subject
+            %th.t__small-caps.name.o__fixed-header
+              Body
+            %th.t__small-caps.name.o__fixed-header
+              Created At
+            %th.t__small-caps.name.o__fixed-header
+
+        %tbody.tbl__body
+          - Email.where(account_id: @current_user.current_account_id).each do |email|
+            %tr
+              %td.tbl__cell
+                = email.from
+              %td.tbl__cell
+                = email.subject
+              %td.tbl__cell
+                = email.body
+              %td.tbl__cell
+                = email.created_at
+              %td.tbl__cell
+          - (30-count_messages.to_i).times do
+            %tr
+              %td.tbl__cell
+              %td.tbl__cell
+              %td.tbl__cell
+              %td.tbl__cell
+              %td.tbl__cell
