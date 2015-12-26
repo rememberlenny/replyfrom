@@ -50,7 +50,7 @@
           - @emails.each do |email|
             %tr
               %td.tbl__cell
-                %input{:type => "checkbox"}
+                %input{:type => "checkbox", name: 'email_' + email.id.to_s}
               %td.tbl__cell
                 = email.from
               %td.tbl__cell
