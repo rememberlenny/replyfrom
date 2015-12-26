@@ -36,6 +36,7 @@
         %thead
           %tr
             %th.t__small-caps.name.o__fixed-header
+            %th.t__small-caps.name.o__fixed-header
               Email
             %th.t__small-caps.name.o__fixed-header
               Subject
@@ -49,6 +50,8 @@
           - Email.where(account_id: @current_user.current_account_id).each do |email|
             %tr
               %td.tbl__cell
+                %input{:type => "checkbox"}
+              %td.tbl__cell
                 = email.from
               %td.tbl__cell
                 = email.subject
@@ -59,6 +62,7 @@
               %td.tbl__cell
           - (30-count_messages.to_i).times do
             %tr
+              %td.tbl__cell
               %td.tbl__cell
               %td.tbl__cell
               %td.tbl__cell
