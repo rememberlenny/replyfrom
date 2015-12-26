@@ -15,7 +15,7 @@ class EmailProcessor
       headers: @email.headers.to_json,
       # forwarded: @email["X-Forwarded-To"],
     )
-    pry
+    # pry
     puts "Done"
   end
 end
