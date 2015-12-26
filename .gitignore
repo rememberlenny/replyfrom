@@ -18,6 +18,7 @@
 /coverage
 .zeus.sock
 .env
+dump.rdb
 
 # Ignore Sublime Text workspace files
 /*.sublime-workspace
