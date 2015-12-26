@@ -136,6 +136,15 @@ html, body{
 	flex-direction: column;
 }
 
+input.btn-warning[type="submit"] {
+  color: white;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+  &:hover{
+  	background-color: #ec971f;
+    border-color: #d58512;
+  }
+}
 body.controller__users, body.controller__accounts{
 	#wrapper .wrapper,
 	#wrapper .wrapper .inner{
@@ -2164,6 +2173,7 @@ body{
 
 	.auth__form{
 		overflow-y: scroll;
+	  width: 100%;
 	}
 
 	/*
