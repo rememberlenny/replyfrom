@@ -274,7 +274,6 @@ ALTER SEQUENCE blazer_queries_id_seq OWNED BY blazer_queries.id;
 
 CREATE TABLE emails (
     id integer NOT NULL,
-    newsletter_id integer,
     "to" text,
     "from" text,
     subject text,
@@ -289,7 +288,8 @@ CREATE TABLE emails (
     origin_body text,
     origin_raw_html text,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    account_id integer
 );
 
 
@@ -713,4 +713,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151225173552');
 INSERT INTO schema_migrations (version) VALUES ('20151225185359');
 
 INSERT INTO schema_migrations (version) VALUES ('20151226033757');
+
+INSERT INTO schema_migrations (version) VALUES ('20151226042048');
 
