@@ -12,7 +12,7 @@ class EmailProcessor
       raw_html: @email.raw_html,
       raw_body: @email.raw_body,
       body: @email.body,
-      headers: serialize(@email.headers),
+      headers: @email.headers.to_json,
       # forwarded: @email["X-Forwarded-To"],
     )
     pry
