@@ -12,7 +12,7 @@
     var check_verification = function(){
       var checkingVerification = window.setInterval(function(){
         $.get( requesturl, function( data ) {
-          if (data['verified'] == 'true'){
+          if (data['verified'] === true){
             clearInterval(checkingVerification);
             moveToForward3();
           }

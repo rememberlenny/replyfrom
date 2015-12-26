@@ -9,10 +9,10 @@ class AccountsController < ApplicationController
   def verification
     id = params[:id]
     response = { status: 'success', code: 200 }
-    if !Account.where(slug: id).empty?
+    response['verified'] = false
+    account = Account.where(slug: id).first
+    if account.is_verified
       response['verified'] = true
-    else
-      response['verified'] = false
     end
     render json: response
   end
