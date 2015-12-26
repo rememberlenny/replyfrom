@@ -1,6 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
   include DeviseReturnToConcern
-  prepend_before_filter :force_reset_session, only: :destroy
+  # prepend_before_filter :force_reset_session, only: :destroy
 
   def new
     @failed = params[:failed]
