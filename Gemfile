@@ -15,6 +15,7 @@ gem 'terminal-notifier', group: [:development]
 
 gem 'phrasie'
 gem "ruby-readability", :require => 'readability'
+gem 'jquery-tablesorter'
 
 # Search
 gem 'algoliasearch-rails'

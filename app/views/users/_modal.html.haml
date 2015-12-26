@@ -1,91 +1,92 @@
-= content_for :javascript do
-  %script
-    var requesturl = "https://#{ENV['CANONICAL_HOST']}/account/verification/#{get_slug}";
-= content_for :on_ready do
-  :plain
-    $('.fowardemail-next').on('click', function(evt){
-      moveToFoward2();
-    });
-    $('.fowardemail-next-3').on('click', function(evt){
-      moveToFoward3();
-    });
-    var check_verification = function(){
-      var checkingVerification = window.setInterval(function(){
-        $.get( requesturl, function( data ) {
-          if (data['verified'] === true){
-            clearInterval(checkingVerification);
-            moveToForward3();
-          }
-        });
-      }, 500);
-    }
-    var moveToFoward2 = function(){
-      $('.fowardemail-step-1').removeClass('show');
-      $('.fowardemail-step-2').addClass('show');
-      check_verification();
-    };
-    var moveToForward3 = function(){
-      $('.fowardemail-step-2').removeClass('show');
-      $('.fowardemail-step-3').addClass('show');
-    }
+- if !Account.find(@current_user.current_account_id).is_verified
+  = content_for :javascript do
+    %script
+      var requesturl = "https://#{ENV['CANONICAL_HOST']}/account/verification/#{get_slug}";
+  = content_for :on_ready do
+    :plain
+      $('.fowardemail-next').on('click', function(evt){
+        moveToFoward2();
+      });
+      $('.fowardemail-next-3').on('click', function(evt){
+        moveToFoward3();
+      });
+      var check_verification = function(){
+        var checkingVerification = window.setInterval(function(){
+          $.get( requesturl, function( data ) {
+            if (data['verified'] === true){
+              clearInterval(checkingVerification);
+              moveToForward3();
+            }
+          });
+        }, 500);
+      }
+      var moveToFoward2 = function(){
+        $('.fowardemail-step-1').removeClass('show');
+        $('.fowardemail-step-2').addClass('show');
+        check_verification();
+      };
+      var moveToForward3 = function(){
+        $('.fowardemail-step-2').removeClass('show');
+        $('.fowardemail-step-3').addClass('show');
+      }
 
-#modalContainer.modal.fade{:role => "dialog"}
-  .modal-dialog.modal-lg
-    / Modal content
-    .modal-content
-      .modal-body.row
-        .col-md-4.sidebar
-          %button.no-styles{"data-dismiss" => "modal", :type => "button"} X Close
-          %h2.modal-title Forward your emails
-          %p Access your list emails faster and smarter by forwarding them to ReplyFrom’s inbox.
-        .col-md-8.mainbar
-          .row
-            .col-md-12.text-center
-              %h3.body-title
-                Forward your mail to ReplyFrom
-              .fowardemail-step-1.setup-step.show
-                %p.half-pad
-                  You should forward your mail to: <b>#{current_email @current_user.id}</b>
-                .well.text-left
-                  %ol
-                    %li
-                      Sign in to your email account.
-                    %li
-                      Click the gear icon in the top right-hand corner and click “Settings”.
-                    %li
-                      Click the “Forwarding and POP/IMAP” tab under “Settings”.
-                    %li
-                      Click the “Add a forwarding address” button and enter
-                      = succeed "." do
-                        %b #{current_email @current_user.id}
-                %p
-                  %button.fowardemail-next
-                    I've set it up
-              .fowardemail-step-2.setup-step
-                %p.center-vertical
-                  Waiting for verification code...
-                %p.setup-forward-options.text-right.half-pad
-                  %button.no-styles.fowardemail-next-3
-                    Skip verification code
-              .fowardemail-step-3.setup-step
-                %p.half-pad
-                  Verification code:
-                .well.text-left
-                  %ol
-                    %li
-                      Sign in to your email account.
-                    %li
-                      Click the gear icon in the top right-hand corner and click “Settings”.
-                    %li
-                      Click the “Forwarding and POP/IMAP” tab under “Settings”.
-                    %li
-                      Enter
-                      %b 173018120
-                      as your verification code.
-                    %li
-                      Select “Forward a copy of incoming mail to #{current_email @current_user.id}”
-                    %li
-                      Click the “Save Changes” button at the bottom
-                %p.setup-forward-options.text-right.half-pad
-                  %button.no-styles{"data-dismiss" => "modal", :type => "button"}
-                    Dont need a verification code
+  #modalContainer.modal.fade{:role => "dialog"}
+    .modal-dialog.modal-lg
+      / Modal content
+      .modal-content
+        .modal-body.row
+          .col-md-4.sidebar
+            %button.no-styles{"data-dismiss" => "modal", :type => "button"} X Close
+            %h2.modal-title Forward your emails
+            %p Access your list emails faster and smarter by forwarding them to ReplyFrom’s inbox.
+          .col-md-8.mainbar
+            .row
+              .col-md-12.text-center
+                %h3.body-title
+                  Forward your mail to ReplyFrom
+                .fowardemail-step-1.setup-step.show
+                  %p.half-pad
+                    You should forward your mail to: <b>#{current_email @current_user.id}</b>
+                  .well.text-left
+                    %ol
+                      %li
+                        Sign in to your email account.
+                      %li
+                        Click the gear icon in the top right-hand corner and click “Settings”.
+                      %li
+                        Click the “Forwarding and POP/IMAP” tab under “Settings”.
+                      %li
+                        Click the “Add a forwarding address” button and enter
+                        = succeed "." do
+                          %b #{current_email @current_user.id}
+                  %p
+                    %button.fowardemail-next
+                      I've set it up
+                .fowardemail-step-2.setup-step
+                  %p.center-vertical
+                    Waiting for verification code...
+                  %p.setup-forward-options.text-right.half-pad
+                    %button.no-styles.fowardemail-next-3
+                      Skip verification code
+                .fowardemail-step-3.setup-step
+                  %p.half-pad
+                    Verification code:
+                  .well.text-left
+                    %ol
+                      %li
+                        Sign in to your email account.
+                      %li
+                        Click the gear icon in the top right-hand corner and click “Settings”.
+                      %li
+                        Click the “Forwarding and POP/IMAP” tab under “Settings”.
+                      %li
+                        Enter
+                        %b 173018120
+                        as your verification code.
+                      %li
+                        Select “Forward a copy of incoming mail to #{current_email @current_user.id}”
+                      %li
+                        Click the “Save Changes” button at the bottom
+                  %p.setup-forward-options.text-right.half-pad
+                    %button.no-styles{"data-dismiss" => "modal", :type => "button"}
+                      Dont need a verification code
