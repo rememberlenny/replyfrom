@@ -4,6 +4,63 @@
 	background: #ddd;
 }
 
+.tbl__cell{
+  background-color: #fff;
+  vertical-align: middle;
+	white-space: nowrap;
+	border-right: 1px solid #e9eef2;
+	padding: 9px 15px;
+	text-align: left;
+	display: table-cell;
+  border-bottom: 1px solid #e9eef2;
+}
+
+.tbl{
+	margin: 20px 0;
+	border-collapse: separate;
+	border-spacing: 0;
+	display: table;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table-portal{
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	table{
+    margin: 0;
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    display: table;
+    border-color: grey;
+	}
+}
+
+.table-user-wrapper{
+	margin: 12px 0 0;
+  padding: 35px 20px 0;
+  width: 100%;
+  box-sizing: border-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  position: relative;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow: auto;
+}
+
 .toolbar-users{
 	border-bottom: 1px solid #dce5eb;
   padding: 10px 20px 10px;
