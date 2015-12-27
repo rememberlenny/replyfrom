@@ -17,7 +17,7 @@ class AccountsController < ApplicationController
       end
     else
       response['status'] = 'Access denied'
-      response['verification_code'] = 403
+      response['code'] = 403
     end
     render json: response
   end
