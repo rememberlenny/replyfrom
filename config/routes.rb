@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   end
 
   get '/account/verification/:id' => 'accounts#verification', as: 'verification'
+  get '/account/verification_code/:id' => 'accounts#verification_code', as: 'verification_code'
 
   post '/update_information' => 'accounts#update_information', as: 'update_account_information'
   get '/get_started' => 'prompts#get_started', as: 'get_started'

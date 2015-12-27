@@ -2,6 +2,7 @@
   = content_for :javascript do
     %script
       var requesturl = location.origin + "/account/verification/#{get_slug}";
+      var requestcodeurl = location.origin + "/account/verification_code/#{get_slug}";
   = content_for :on_ready do
     :plain
       $('.fowardemail-next').on('click', function(evt){
@@ -16,9 +17,19 @@
             if (data['verified'] === true){
               clearInterval(checkingVerification);
               moveToForward3();
+              get_verification_code();
             }
           });
         }, 500);
+      }
+      var get_verification_code = function(){
+        $.get( requestcodeurl, function( data ) {
+          if (data['code'] === 200){
+            $('span.verification_code').html(data['verification_code']);
+          } else {
+            console.log(data);
+          }
+        });
       }
       var moveToFoward2 = function(){
         $('.fowardemail-step-1').removeClass('show');
@@ -26,6 +37,7 @@
         check_verification();
       };
       var moveToForward3 = function(){
+
         $('.fowardemail-step-2').removeClass('show');
         $('.fowardemail-step-3').addClass('show');
       }
@@ -71,6 +83,7 @@
                 .fowardemail-step-3.setup-step
                   %p.half-pad
                     Verification code:
+                    %span.verification_code
                   .well.text-left
                     %ol
                       %li
@@ -81,7 +94,8 @@
                         Click the “Forwarding and POP/IMAP” tab under “Settings”.
                       %li
                         Enter
-                        %b 173018120
+                        %b
+                          %span.verification_code
                         as your verification code.
                       %li
                         Select “Forward a copy of incoming mail to #{current_email @current_user.id}”
