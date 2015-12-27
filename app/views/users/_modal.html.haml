@@ -1,8 +1,9 @@
 - if !Account.find(@current_user.current_account_id).is_verified
   = content_for :javascript do
     %script
-      var requesturl = location.origin + "/account/verification/#{get_slug}";
-      var requestcodeurl = location.origin + "/account/verification_code/#{get_slug}";
+      var requestUrl = location.origin + "/account/verification/#{get_slug}";
+      var requestCodeUrl = location.origin + "/account/verification_code/#{get_slug}";
+      var requestReceivingUrl = location.origin + "/account/is_receiving/#{get_slug}";
   = content_for :on_ready do
     :plain
       $('.fowardemail-next').on('click', function(evt){
@@ -11,9 +12,23 @@
       $('.fowardemail-next-3').on('click', function(evt){
         moveToForward3();
       });
+      var moveToFoward2 = function(){
+        $('.fowardemail-step-1').removeClass('show');
+        $('.fowardemail-step-2').addClass('show');
+        check_verification();
+      };
+      var moveToForward3 = function(){
+        $('.fowardemail-step-2').removeClass('show');
+        $('.fowardemail-step-3').addClass('show');
+        checkIsReceiving();
+      }
+      var moveToForward4 = function(){
+        $('.fowardemail-step-3').removeClass('show');
+        $('.fowardemail-step-4').addClass('show');
+      }
       var check_verification = function(){
         var checkingVerification = window.setInterval(function(){
-          $.get( requesturl, function( data ) {
+          $.get( requestUrl, function( data ) {
             if (data['verified'] === true){
               clearInterval(checkingVerification);
               moveToForward3();
@@ -23,7 +38,7 @@
         }, 500);
       }
       var get_verification_code = function(){
-        $.get( requestcodeurl, function( data ) {
+        $.get( requestCodeUrl, function( data ) {
           if (data['code'] === 200){
             $('span.verification_code').html(data['verification_code']);
           } else {
@@ -31,15 +46,15 @@
           }
         });
       }
-      var moveToFoward2 = function(){
-        $('.fowardemail-step-1').removeClass('show');
-        $('.fowardemail-step-2').addClass('show');
-        check_verification();
-      };
-      var moveToForward3 = function(){
-
-        $('.fowardemail-step-2').removeClass('show');
-        $('.fowardemail-step-3').addClass('show');
+      var checkIsReceiving = function(){
+        var checkingReceiving = window.setInterval(function(){
+          $.get( requestReceivingUrl, function( data ) {
+            if (data['receiving'] === true){
+              clearInterval(checkingReceiving);
+              moveToForward4();
+            }
+          });
+        }, 500);
       }
 
   #modalContainer.modal.fade{:role => "dialog"}
@@ -104,3 +119,9 @@
                   %p.setup-forward-options.text-right.half-pad
                     %button.no-styles{"data-dismiss" => "modal", :type => "button"}
                       Dont need a verification code
+                .fowardemail-step-4.setup-step
+                  %p.center-vertical
+                    Hooray! ReplyFrom is receiving your emails.
+                  %p.setup-forward-options.text-right.half-pad
+                    %button.no-styles{"data-dismiss" => "modal", :type => "button"}
+                      Go to dashboard

@@ -6,6 +6,23 @@ class AccountsController < ApplicationController
     @account = Account.new()
   end
 
+  def is_receiving
+    id = params[:id]
+    response = { status: 'success', code: 200 }
+    response['receiving'] = false
+    account = Account.where(slug: id).first
+    if @current_user.current_account_id == account.id
+      if !account.nil? && account.verification_code
+        response['receiving'] = account.is_receiving
+      end
+    else
+      response['status'] = 'Access denied'
+      response['code'] = 403
+    end
+    render json: response
+  end
+
+
   def verification_code
     id = params[:id]
     response = { status: 'success', code: 200 }

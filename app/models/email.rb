@@ -2,6 +2,17 @@ class Email < ActiveRecord::Base
   after_create :check_verified
   after_create :set_account
   after_create :confirm_google_verification
+  after_create :is_receiving
+
+  def is_receiving
+    to_email = self.to
+    slug = to_email.split('@')[0]
+    account = Account.where(slug: slug).first
+    if !account.is_receiving
+      account.is_receiving = true
+      account.save
+    end
+  end
 
   def confirm_google_verification
     to_email = self.to
