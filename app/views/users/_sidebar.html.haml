@@ -1,3 +1,13 @@
+= content_for :on_ready do
+  :plain
+    $("input[type='checkbox']").change(function(data){
+      var els = $('input[type="checkbox"]:checked');
+      var ids = els.map(function(){
+        var id = this.name.split('email_')[1];
+        return parseInt(id, 10)
+      });
+      console.log(ids);
+    });
 .sidebar-col.app-row.layoutbox{style: 'background: #333'}
-  %h1 Sidebar
+  %div.sidebarContent
 

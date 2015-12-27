@@ -21,6 +21,9 @@ class Email < ActiveRecord::Base
       if !ht.nil?
         puts "success"
         found = ht.scan(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i)
+        found.delete("scripts@plympton.com")
+        found.delete("hackathon@plympton.com")
+        found.delete("7ce06e61@incoming.replyfrom.com")
         ee.from = found.first
         ee.save
       else
