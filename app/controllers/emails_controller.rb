@@ -1,6 +1,7 @@
 class EmailsController < ApplicationController
   load_and_authorize_resource :user
   before_action :set_email, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :json
 
   def index
     @emails = Email.all

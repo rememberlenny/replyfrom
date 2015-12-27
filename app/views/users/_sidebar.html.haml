@@ -7,7 +7,26 @@
         return parseInt(id, 10)
       });
       console.log(ids);
+      console.log(ids.length);
+      updateSidebarHeader(ids);
+      updateSidebarContent(ids);
     });
+    var updateSidebarHeader = function(ids){
+      $('.sidebarHeader .count').html(ids.length)
+    }
+    var updateSidebarContent = function(ids){
+      var content = "";
+      for(i = 0; i < ids.length; i++){
+        var el = "<div>" + ids[i] + "</div>";
+        content = content + el;
+      }
+      $('.sidebarContent').html(content);
+    }
 .sidebar-col.app-row.layoutbox{style: 'background: #333'}
+  %div.sidebarHeader
+    %h4{style: 'color: #eee'}
+      %span.count
+        0
+      = " selected"
   %div.sidebarContent
 
