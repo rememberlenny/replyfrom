@@ -1,6 +1,19 @@
 class Email < ActiveRecord::Base
   after_create :check_verified
   after_create :set_account
+  after_create :confirm_google_verification
+
+  def confirm_google_verification
+    to_email = self.to
+    slug = to_email.split('@')[0]
+    account = Account.where(slug: slug).first
+    if self.from == "forwarding-noreply@google.com"
+      verification_block = self.body.split("If you aren't able to access the link, you can send the confirmation code ")
+      verification_code = verification_block.split(' ')[0]
+      account.verification_code = verification_code
+      account.save
+    end
+  end
 
   def check_verified
     to_email = self.to
