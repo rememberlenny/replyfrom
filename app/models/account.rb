@@ -12,11 +12,10 @@ class Account < ActiveRecord::Base
   def self.start_verification_emails account_id
     account = Account.find account_id
     if !account.is_receiving
+      i = 0
       5.times do
-        if !account.is_receiving
-          VerifyForwardMailer.delay.verify_forward_email(account_id)
-          sleep(10)
-        end
+        i = i + 20
+        VerifyForwardMailer.delay_for(i.seconds).verify_forward_email(account_id)
       end
     end
   end

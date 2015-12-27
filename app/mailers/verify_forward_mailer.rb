@@ -4,7 +4,9 @@ class VerifyForwardMailer < ActionMailer::Base
 
   def verify_forward_email(account)
     return false unless load_user(account).present?
-    mail to: @account.fowarded_email, subject: I18n.t('emails.verify_forward.subject')
+    if !@account.is_receiving
+      mail to: @account.fowarded_email, subject: I18n.t('emails.verify_forward.subject')
+    end
   end
 
   protected

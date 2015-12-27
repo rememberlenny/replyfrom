@@ -33,7 +33,7 @@ class AccountsController < ApplicationController
         response['verification_code'] = account.verification_code
       end
       if !account.is_receiving
-        Account.start_verification_emails account.id
+        Account.delay.start_verification_emails account.id
       end
     else
       response['status'] = 'Access denied'
