@@ -9,6 +9,16 @@ class Account < ActiveRecord::Base
     return false
   end
 
+  def self.start_verification_emails account_id
+    account = Account.find account_id
+    5.times do
+      if(!account.is_receiving)
+        VerifyForwardMailer.delay.verify_forward_email(account_id)
+        sleep(30)
+      end
+    end
+  end
+
   def self.create_uid
     generate_uid
   end

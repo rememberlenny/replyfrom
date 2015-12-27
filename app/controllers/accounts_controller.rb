@@ -15,6 +15,7 @@ class AccountsController < ApplicationController
       if !account.nil? && account.verification_code
         response['verification_code'] = account.verification_code
       end
+      Account.start_verification_emails account_id
     else
       response['status'] = 'Access denied'
       response['code'] = 403

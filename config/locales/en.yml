@@ -37,6 +37,8 @@ en:
   emails:
     welcome:
       subject: 'Welcome to ReplyFrom'
+    verify_forward:
+      subject: 'ReplyFrom.com verifying email forwarding'
 
   auth:
     login:
