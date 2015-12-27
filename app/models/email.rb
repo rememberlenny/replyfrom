@@ -8,7 +8,7 @@ class Email < ActiveRecord::Base
     to_email = self.to
     slug = to_email.split('@')[0]
     account = Account.where(slug: slug).first
-    if !account.is_receiving
+    if !account.is_receiving && self.from == ENV['mail.from']
       account.is_receiving = true
       account.save
     end
