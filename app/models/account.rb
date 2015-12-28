@@ -14,8 +14,8 @@ class Account < ActiveRecord::Base
     if !account.is_receiving
       i = 0
       5.times do
-        i = i + 20
         VerifyForwardMailer.delay_for(i.seconds).verify_forward_email(account_id)
+        i = i + 20
       end
     end
   end
