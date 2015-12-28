@@ -52,7 +52,9 @@
 
 .fowardemail-step-1,
 .fowardemail-step-2,
-.fowardemail-step-3{
+.fowardemail-step-3,
+.fowardemail-step-4
+{
 	display: none;
 	&.show{
 		display: block;
