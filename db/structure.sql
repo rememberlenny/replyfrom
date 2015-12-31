@@ -42,7 +42,8 @@ CREATE TABLE accounts (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     is_verified boolean DEFAULT false,
-    verification_code character varying(255)
+    verification_code character varying(255),
+    is_receiving boolean DEFAULT false
 );
 
 
@@ -714,4 +715,6 @@ INSERT INTO schema_migrations (version) VALUES ('20151226033757');
 INSERT INTO schema_migrations (version) VALUES ('20151226042048');
 
 INSERT INTO schema_migrations (version) VALUES ('20151227175022');
+
+INSERT INTO schema_migrations (version) VALUES ('20151227192516');
 
