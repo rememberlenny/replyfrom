@@ -5,18 +5,16 @@ class Email < ActiveRecord::Base
   after_create :is_receiving
 
   def is_receiving
-    to_email = self.to
-    slug = to_email.split('@')[0]
-    account = Account.where(slug: slug).first
+    token = self.token
+    account = Account.where(slug: token).first
     if account && !account.is_receiving && self.from != "forwarding-noreply@google.com"
       account.is_receiving = true
       account.save
-    end
+    end 
   end
 
   def confirm_google_verification
-    to_email = self.to
-    slug = to_email.split('@')[0]
+    slug = self.token
     account = Account.where(slug: slug).first
     if self.from == "forwarding-noreply@google.com" && self.raw_text
       verification_code = self.raw_text.split("confirmation code\r\n")[1].split(' ')[0]
@@ -26,8 +24,7 @@ class Email < ActiveRecord::Base
   end
 
   def check_verified
-    to_email = self.to
-    slug = to_email.split('@')[0]
+    slug = self.token
     account = Account.where(slug: slug).first
     if account && !account.nil?
       if !account.is_verified
