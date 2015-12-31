@@ -10,6 +10,7 @@ class EmailProcessor
     if @email.headers && !@email.headers["X-Forwarded-To"].nil?
       original_to = @email.headers["X-Forwarded-To"]
     end
+    email_params = {}
     if to
       email_params['to'] = to
     end
