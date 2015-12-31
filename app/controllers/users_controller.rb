@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @emails = Email.where(account_id: @current_user.current_account_id).reverse
+    @account_email = Account.find(@current_user.current_account_id).email
   end
 
   def setup_account
