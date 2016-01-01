@@ -34,7 +34,7 @@ module SeoHelper
     set_meta_tags :fb => {:app_id => I18n.t('meta.og.app_id')}
     set_meta_tags :canonical => request.url
     set_meta_tags :og => {:url => request.url}
-    set_meta_tags icon: image_url('emailstand-96.png'), type: 'image/png'
+    # set_meta_tags icon: image_url('emailstand-96.png'), type: 'image/png'
     display_meta_tags
   end
 
